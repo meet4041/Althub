@@ -445,7 +445,7 @@ export default function Home({ socket }) {
 
         <div className="home-right-main">
           <div className="event-box">
-            <span>Upcoming Events</span>
+            <span>Events</span>
             <div className="upcoming-events">
               {events.map((elem) => (
                 <div className="upcoming-event">

@@ -11,7 +11,7 @@ import Footer from '../layout/Footer';
 const AddCompany = () => {
     const navigate = useNavigate();
     useEffect(() => {
-        // document.getElementById('page-loader').style.display = 'none';
+        document.getElementById('page-loader').style.display = 'none';
 
         var element = document.getElementById("page-container");
         element.classList.add("show");
