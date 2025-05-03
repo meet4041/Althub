@@ -26,7 +26,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
 const education_controller = require("../controllers/educationController");
 
 //Education routes

@@ -26,7 +26,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
 const notification_controller = require("../controllers/notificationController");
 
 //Company routes
@@ -35,5 +34,3 @@ notification_route.post('/getnotifications', notification_controller.getnotifica
 notification_route.post('/uploadNotificationSenderImage', upload.single('senderimage'), notification_controller.uploadNotificationSenderImage);
 
 module.exports = notification_route;
-
-

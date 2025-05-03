@@ -13,7 +13,3 @@ const experience = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("experienceTB", experience);
-
-
-
-

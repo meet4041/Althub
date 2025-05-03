@@ -7,7 +7,3 @@ const conversation = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("conversationTB", conversation);
-
-
-
-

@@ -16,7 +16,3 @@ const course = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("courseTB", course);
-
-
-
-

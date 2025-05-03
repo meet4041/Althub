@@ -43,7 +43,6 @@ const sendresetpasswordMail = async (name, email, token) => {
             from: config.emailUser,
             to: email,
             subject: 'For Reset Password',
-            // html: '<p>Hello ' + name + ', Please copy the link and <a href="localhost:5000/api/userResetPassword?token=' + token + '" style="color:blue"> reset your password</a></p>'
             html: '<p>Hello ' + name + ', Please copy the link to<a href="http://localhost:3000/new-password?token=' + token + '"> reset your password</a></p>'
         }
         transporter.sendMail(mailoptions, function (error, info) {
@@ -345,7 +344,6 @@ const inviteUser = async (req, res) => {
         console.log("Error in invite User API : " + error.message);
     }
 }
-
 
 module.exports = {
     registerInstitute,

@@ -9,48 +9,52 @@ function ChatUser({
   setProfilepic,
   setReceiverId,
 }) {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [userId, setUserId] = useState("");
   const myid = localStorage.getItem("AlmaPlus_Id");
-  const getUser = () => {
-    if (userId !== "") {
-      axios({
-        method: "get",
-        url: `${WEB_URL}/api/searchUserById/${userId}`,
-      })
-        .then((Response) => {
-          setUser(Response.data.data[0]);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  };
 
   useEffect(() => {
-    setUserId(userid.members.find((m) => m !== myid));
-    getUser();
-  }, [userid,getUser,myid]);
+    if (userid?.members && myid) {
+      const otherUserId = userid.members.find((m) => m !== myid);
+      setUserId(otherUserId);
+    }
+  }, [userid, myid]);
 
-  
+  useEffect(() => {
+    if (userId !== "") {
+      axios
+        .get(`${WEB_URL}/api/searchUserById/${userId}`)
+        .then((response) => {
+          setUser(response.data.data[0]);
+        })
+        .catch((error) => {
+          console.error("Error fetching user:", error);
+        });
+    }
+  }, [userId]);
+
+  if (!user) {
+    return null;
+  }
 
   return (
-    <>
-      <div
-        className="chat-user"
-        onClick={() => {
-          setCurrentId(userid._id);
-          setName(user.fname + " " + user.lname);
-          setProfilepic(user.profilepic);
-          setReceiverId(user._id);
-        }}
-      >
-        <img src={`${WEB_URL}${user.profilepic}`} alt="" />
-        <span className="chat-user-name">
-          {user.fname} {user.lname}
-        </span>
-      </div>
-    </>
+    <div
+      className="chat-user"
+      onClick={() => {
+        setCurrentId(userid._id);
+        setName(`${user.fname} ${user.lname}`);
+        setProfilepic(user.profilepic);
+        setReceiverId(user._id);
+      }}
+    >
+      <img
+        src={`${WEB_URL}${user.profilepic || "/default-profile.png"}`}
+        alt="Profile"
+      />
+      <span className="chat-user-name">
+        {user.fname} {user.lname}
+      </span>
+    </div>
   );
 }
 

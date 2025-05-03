@@ -9,7 +9,6 @@ course_route.use(bodyParser.urlencoded({ extended: true }));
 
 course_route.use(cookieParser());
 course_route.use(express.static('public'));
-
 const course_controller = require("../controllers/courseController");
 
 //course routes
@@ -21,5 +20,3 @@ course_route.post('/editCourse', course_controller.editCourse);
 course_route.get('/getCourseByInstitute/:instituteid', course_controller.getCourseByInstitute);
 
 module.exports = course_route;
-
-

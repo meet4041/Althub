@@ -13,5 +13,3 @@ message_route.post('/newMessage', message_controller.newMessage);
 message_route.get('/getMessages/:conversationId', message_controller.getMessages);
 
 module.exports = message_route;
-
-

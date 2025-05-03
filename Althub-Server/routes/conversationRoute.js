@@ -14,5 +14,3 @@ conversation_route.get('/getConversations/:userId', conversation_controller.getC
 conversation_route.post('/searchConversations', conversation_controller.searchConversation);
 
 module.exports = conversation_route;
-
-

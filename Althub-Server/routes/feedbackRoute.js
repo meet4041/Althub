@@ -18,5 +18,3 @@ feedback_route.get('/getFeedback', feedback_controller.getFeedback);
 feedback_route.delete('/deleteFeedback/:id', feedback_controller.deleteFeedback);
 
 module.exports = feedback_route;
-
-

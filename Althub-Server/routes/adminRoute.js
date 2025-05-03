@@ -28,7 +28,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
 const admin_controller = require("../controllers/adminController");
 
 //admin routes

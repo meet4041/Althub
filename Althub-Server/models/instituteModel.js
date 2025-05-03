@@ -32,9 +32,4 @@ const institute = new mongoose.Schema({
     }
 });
 
-
 module.exports = mongoose.model("InstituteTB1", institute);
-
-
-
-

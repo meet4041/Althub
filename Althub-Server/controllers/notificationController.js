@@ -46,7 +46,6 @@ const getnotifications = async (req, res) => {
     }
 }
 
-
 module.exports = {
     uploadNotificationSenderImage,
     addNotification,

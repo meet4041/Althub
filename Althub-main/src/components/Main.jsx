@@ -77,7 +77,7 @@ function Main() {
                 </div>
                 <div>
                 <i class="fa-solid fa-pen"></i>
-                    Programs work better on Almabase because you can reach your alumni wherever they are.
+                    Programs work better on Althub base because you can reach your alumni wherever they are.
                 </div>
                 <div>
                 <i class="fa-solid fa-pen"></i>

@@ -26,7 +26,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
 const company_controller = require("../controllers/companyController");
 
 //Company routes
@@ -36,5 +35,3 @@ company_route.delete('/deleteCompany/:id', company_controller.deleteCompany);
 company_route.post('/uploadCompanyImage', upload.single('image'), company_controller.uploadCompanyImage);
 
 module.exports = company_route;
-
-

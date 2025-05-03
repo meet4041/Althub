@@ -32,6 +32,7 @@ const addPost = async (req, res) => {
         console.log("Error in add post : " + error.message);
     }
 }
+
 //Add post for institute
 const instituteAddPost = async (req, res) => {
     try {
@@ -59,7 +60,6 @@ const instituteAddPost = async (req, res) => {
         console.log("Error in add post (Institute): " + error.message);
     }
 }
-
 
 //get all post
 const getPosts = async (req, res) => {

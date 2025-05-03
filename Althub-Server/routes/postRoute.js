@@ -48,7 +48,6 @@ const uploadPic = (req, res, next) => {
 }
 
 const upload = multer({ storage: storage }).array('photos', 5);
-
 const post_controller = require("../controllers/postController");
 
 //event routes
@@ -62,5 +61,3 @@ post_route.get('/getPostById/:userid', post_controller.getPostById);
 post_route.post('/instituteAddPost', uploadPic, post_controller.instituteAddPost);
 
 module.exports = post_route;
-
-

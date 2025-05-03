@@ -17,7 +17,3 @@ const message = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("messageTB", message);
-
-
-
-

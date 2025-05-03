@@ -23,7 +23,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
 const institute_controller = require("../controllers/instituteController");
 
 institute_route.post('/registerInstitute', institute_controller.registerInstitute);
@@ -36,7 +35,6 @@ institute_route.delete('/deleteInstitute/:id', institute_controller.deleteInstit
 institute_route.get('/getInstitutes', institute_controller.getInstitues);
 institute_route.get('/getInstituteById/:_id', institute_controller.searchInstituteById);
 institute_route.post('/inviteUser', institute_controller.inviteUser);
-
 institute_route.post('/uploadInstituteImage', upload.single('image'), institute_controller.uploadInstituteImage);
 
 module.exports = institute_route;

@@ -24,7 +24,3 @@ const admin = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("adminTB", admin);
-
-
-
-

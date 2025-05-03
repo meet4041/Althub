@@ -14,7 +14,3 @@ const feedback = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("FeedbackTB", feedback);
-
-
-
-

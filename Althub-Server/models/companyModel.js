@@ -21,9 +21,4 @@ const company = new mongoose.Schema({
     }
 });
 
-
 module.exports = mongoose.model("CompanyTB", company);
-
-
-
-

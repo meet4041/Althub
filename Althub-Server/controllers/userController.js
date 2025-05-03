@@ -24,7 +24,6 @@ const sendresetpasswordMail = async (name, email, token) => {
             from: config.emailUser,
             to: email,
             subject: 'For Reset Password',
-            // html: '<p>Hello ' + name + ', Please copy the link and <a href="localhost:5000/api/userResetPassword?token=' + token + '" style="color:blue"> reset your password</a></p>'
             html: '<p>Hello ' + name + ', Please copy the link to<a href="http://localhost:3000/new-password?token=' + token + '"> reset your password</a></p>'
         }
 
@@ -42,7 +41,6 @@ const sendresetpasswordMail = async (name, email, token) => {
     }
 }
 
-
 //method for generate jwt token
 const createtoken = async (id) => {
     try {
@@ -52,7 +50,6 @@ const createtoken = async (id) => {
         res.status(400).send(error.message);
     }
 }
-
 
 //method for password hashing
 const securePassword = async (password) => {
@@ -202,7 +199,6 @@ const userlogin = async (req, res) => {
         console.log("Error in Login User : " + error.message);
     }
 }
-
 
 //user update password
 const updatePassword = async (req, res) => {

@@ -35,7 +35,3 @@ const post = new mongoose.Schema({
 
 
 module.exports = mongoose.model("PostTB", post);
-
-
-
-

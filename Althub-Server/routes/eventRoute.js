@@ -48,7 +48,6 @@ const uploadPic = (req, res, next) => {
 }
 
 const upload = multer({ storage: storage }).array('photos', 5);
-
 const event_controller = require("../controllers/eventController");
 
 //event routes
@@ -62,5 +61,3 @@ event_route.get('/getUpcommingEvents', event_controller.getUpcommingEvents);
 event_route.put("/participateInEvent/:id", event_controller.participateInEvent);
 
 module.exports = event_route;
-
-

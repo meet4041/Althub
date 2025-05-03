@@ -73,6 +73,3 @@ const user = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("usersTB1", user);
-
-
-

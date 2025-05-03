@@ -27,9 +27,4 @@ const event = new mongoose.Schema({
     }
 });
 
-
 module.exports = mongoose.model("EventTB", event);
-
-
-
-

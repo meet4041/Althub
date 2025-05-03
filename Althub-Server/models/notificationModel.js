@@ -24,7 +24,3 @@ const notification = new mongoose.Schema({
 
 
 module.exports = mongoose.model("NotificationTB", notification);
-
-
-
-
