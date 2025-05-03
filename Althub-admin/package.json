@@ -1,5 +1,5 @@
 {
-  "name": "Althub-Admin",
+  "name": "althub_adminapi",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

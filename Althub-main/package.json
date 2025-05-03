@@ -1,5 +1,5 @@
 {
-  "name": "Althub-Main",
+  "name": "althub_mainapi",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
