@@ -1,5 +1,5 @@
 {
-    "name": "almaplus_registerapi",
+    "name": "althub_registerapi",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -8,7 +8,7 @@
         "start": "nodemon index.js"
     },
     "keywords": [],
-    "author": "Drashti",
+    "author": "Jash",
     "license": "ISC",
     "dependencies": {
         "bcryptjs": "^2.4.3",
