@@ -30,8 +30,6 @@ function ForgotPassword() {
     const submitHandler = (e) => {
         e.preventDefault();
         if (validate()) {
-            // console.log('submit');
-            // console.log(email);
             setDisable(true);
             const myurl = `${ALTHUB_API_URL}/api/instituteForgetPassword`;
             axios({
@@ -41,7 +39,6 @@ function ForgotPassword() {
                     email: email
                 },
             }).then((response) => {
-                // console.log(response)
                 if (response.data.success === true) {
                     setDisable(false);
                     toast.success(response.data.msg);
@@ -101,7 +98,6 @@ function ForgotPassword() {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

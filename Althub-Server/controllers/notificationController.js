@@ -29,7 +29,6 @@ const addNotification = async (req, res) => {
         });
         const notification_data = await notification.save();
         res.status(200).send({ success: true, data: notification_data });
-        // console.log(course);
     } catch (error) {
         res.status(400).send({ success: false, msg: "Error in Add notification" });
     }
@@ -38,7 +37,6 @@ const addNotification = async (req, res) => {
 //view all notification
 const getnotifications = async (req, res) => {
     try {
-        // let start = Date.now();
         const notification_data = await Notification.find({ userid: req.body.userid }).limit(5);
         res.status(200).send({ success: true, data: notification_data });
     } catch (error) {

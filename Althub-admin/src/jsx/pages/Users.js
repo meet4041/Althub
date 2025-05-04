@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from 'react';
-// import { Link, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
@@ -9,7 +8,6 @@ import SweetAlert from 'react-bootstrap-sweetalert';
 import axios from 'axios';
 
 const Users = () => {
-    // let navigate = useNavigate();
     const [users, setUsers] = useState([]);
     const [displayUsers, setDisplayUsers] = useState([]);
     const rows = [10, 20, 30];
@@ -23,20 +21,16 @@ const Users = () => {
         var element = document.getElementById("page-container");
         element.classList.add("show");
         getUsersData();
-
     }, []);
 
     const getUsersData = () => {
-
         axios({
             method: "get",
             url: `${ALTHUB_API_URL}/api/getUsers`,
-            // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
             console.log(response.data.data);
             setUsers(response.data.data);
-
         });
     };
 
@@ -47,7 +41,6 @@ const Users = () => {
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = displayUsers.slice(indexOfFirstUser, indexOfLastUser);
-
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(displayUsers.length / usersPerPage); i++) {
@@ -74,7 +67,6 @@ const Users = () => {
 
     const handleApply = () => {
         if (from && to) {
-            // getUsersData(from,to);
             setCurrentPage(1);
         }
     }
@@ -88,7 +80,6 @@ const Users = () => {
     }
 
     const DeleteUser = () => {
-        // console.log("delete button");
         axios({
             method: "delete",
             url: `${ALTHUB_API_URL}/api/deleteUser/${deleteId}`,
@@ -102,7 +93,6 @@ const Users = () => {
         })
     }
     const handleReset = () => {
-        // getUsersData('none','none');
         setCurrentPage(1);
         setFrom('');
         setTo('');
@@ -118,11 +108,7 @@ const Users = () => {
                         <li className="breadcrumb-item"><Link to="/dashboard">Dashboard</Link></li>
                         <li className="breadcrumb-item active">Users</li>
                     </ol>
-
-                    <h1 className="page-header">Users
-                        {/* <Link to="/add-user" className="btn btn-success mx-3" ><i className="fa fa-plus"></i></Link> */}
-                    </h1>
-
+                    <h1 className="page-header">Users</h1>
                     <div className="card">
                         <div className="card-body">
                             <div class="form-outline mb-4">
@@ -150,7 +136,6 @@ const Users = () => {
                                                         <td align='left'>{index + 1}</td>
                                                         <td>{elem.fname}</td>
                                                         <td>{elem.profilepic === '' || elem.profilepic === undefined ? <img src='assets/img/login-bg/profile1.png' alt='' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}></img> : <img src={`${ALTHUB_API_URL}${elem.profilepic}`} alt='user-img' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} />}</td>
-                                                        {/* <td>{elem.profilepic === '' || elem.profilepic === undefined ? <img src='assets/img/profile1.png' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}></img> : <img src={`${ALMA_PLUS_API_URL}${elem.profilepic}`} alt='user-img' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} />}</td> */}
                                                         <td>{elem.email}</td>
                                                         <td>{elem.phone ? elem.phone : ''}</td>
                                                         <td>{elem.dob}</td>

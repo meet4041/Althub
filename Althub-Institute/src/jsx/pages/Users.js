@@ -8,9 +8,7 @@ import SweetAlert from 'react-bootstrap-sweetalert';
 import axios from 'axios';
 
 const Users = () => {
-    // const institute_Id = localStorage.getItem("AlmaPlus_institute_Id");
     const institute_Name = localStorage.getItem("AlmaPlus_institute_Name");
-    // let navigate = useNavigate();
     const [users, setUsers] = useState([]);
     const [displayUsers, setDisplayUsers] = useState([]);
     const rows = [10, 20, 30];
@@ -30,7 +28,6 @@ const Users = () => {
         axios({
             method: "get",
             url: `${ALTHUB_API_URL}/api/getUsersOfInstitute/${institute_Name}`,
-            // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
             console.log(response.data.data);
@@ -46,7 +43,6 @@ const Users = () => {
     const indexOfLastUser = currentPage * usersPerPage;
     const indexOfFirstUser = indexOfLastUser - usersPerPage;
     const currentUsers = displayUsers.slice(indexOfFirstUser, indexOfLastUser);
-
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(displayUsers.length / usersPerPage); i++) {
@@ -72,7 +68,6 @@ const Users = () => {
 
     const handleApply = () => {
         if (from && to) {
-            // getUsersData(from,to);
             setCurrentPage(1);
         }
     }
@@ -86,7 +81,6 @@ const Users = () => {
     }
 
     const DeleteUser = () => {
-        // console.log("delete button");
         axios({
             method: "delete",
             url: `${ALTHUB_API_URL}/api/deleteUser/${deleteId}`,
@@ -101,7 +95,6 @@ const Users = () => {
     }
 
     const handleReset = () => {
-        // getUsersData('none','none');
         setCurrentPage(1);
         setFrom('');
         setTo('');
@@ -117,11 +110,9 @@ const Users = () => {
                         <li className="breadcrumb-item"><Link to="/dashboard">Dashboard</Link></li>
                         <li className="breadcrumb-item active">Users</li>
                     </ol>
-
                     <h1 className="page-header">Users
                         <Link to="/add-user" className="btn btn-success mx-3" ><i className="fa fa-plus"></i></Link>
                     </h1>
-
                     <div className="card">
                         <div className="card-body">
                             <div class="form-outline mb-4">

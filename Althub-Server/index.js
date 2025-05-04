@@ -13,7 +13,6 @@ const io = require("socket.io")(8900, {
 });
 
 connectToMongo();
-
 //routes
 const user_route = require("./routes/userRoute");
 const event_route = require("./routes/eventRoute");

@@ -3,18 +3,16 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
-
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
 
 const AddPost = () => {
-
     const institute_Id = localStorage.getItem("AlmaPlus_institute_Id");
     const [iname, setiname] = useState('');
     const [image,setImage]=useState("");
-
     const navigate = useNavigate();
+
     useEffect(() => {
         document.getElementById('page-loader').style.display = 'none';
         var element = document.getElementById("page-container");
@@ -49,7 +47,6 @@ const AddPost = () => {
             method: "get",
             url: myurl,
         }).then((response) => {
-            // console.log(response.data.data.email);
             if (response.data.success === true) {
                 setiname(response.data.data.name);
             }
@@ -102,12 +99,7 @@ const AddPost = () => {
                 console.log(error);
                 setDisable(false);
             });
-
         }
-        // console.log(data.description);
-        // console.log(iname);
-        // console.log(institute_Id);
-
     };
 
     const validate = () => {
@@ -150,14 +142,6 @@ const AddPost = () => {
                                 <div className="panel-body">
                                     <form onSubmit={submitHandler}>
                                         <fieldset>
-                                            {/* <div className="row">
-                                                <div className="col-md-12 form-group">
-                                                    <label htmlFor="exampleInputName">Name:</label>
-                                                    <input type="text" className="form-control" id="exampleInputName" placeholder="Enter your name" name="fname" value={data.fname} onChange={handleChange} />
-                                                    <div className="text-danger">{errors.name_err}</div>
-                                                </div>
-                                            </div> */}
-
                                             <div className="row">
                                                 <div className="col-md-12 form-group">
                                                     <label htmlFor="exampleInputdesc">Description:</label>
@@ -178,9 +162,7 @@ const AddPost = () => {
                                                                 </div>
                                                             )}
                                                         </div>
-
                                                         : ""}
-
                                                 </div>
                                             </div>
                                             <button className="btn btn-sm btn-success m-r-5">{disable ? 'Processing...' : 'Submit'}</button>

@@ -6,10 +6,8 @@ import Footer from '../layout/Footer';
 import axios from 'axios';
 import { ALTHUB_API_URL } from './baseURL';
 
-
 function Dashboard() {        
     useEffect(() => {
-        // document.getElementById('page-loader').style.display = 'none';
         var element = document.getElementById("page-container");
         element.classList.add("show");
         getTotalUser();
@@ -22,7 +20,6 @@ function Dashboard() {
     const [institutes, setInstitutes] = useState(0);
     const [feedback, setFeedback] = useState(0);
     const [company, setCompany] = useState(0);
-    
 
     const getTotalUser = () => {
         axios({
@@ -67,10 +64,8 @@ function Dashboard() {
         });
     };
 
-    
     return (
         <>
-            {/* <Loader /> */}
             <div id="page-container" className="fade page-sidebar-fixed page-header-fixed">
                 <Menu />
                 <div id="content" className="content">
@@ -82,8 +77,6 @@ function Dashboard() {
                     <div className="row">
                         <div className="col-xl-3 col-md-6">
                         <div className="widget widget-stats " style={{background:'#17A2B8'}}>
-                        
-                            
                                 <div className="stats-icon"><i className="fa fa-users"></i></div>
                                 <div className="stats-info">
                                     <h4>Total Users</h4>
@@ -119,7 +112,6 @@ function Dashboard() {
                             </div>
                         </div>
                         <div className="col-xl-3 col-md-6">
-                        {/* style={{background:'#AF1763'}} */}
                         <div className="widget widget-stats bg-pink" >
                                 <div className="stats-icon"><i className="fa fa-comments"></i></div>
                                 <div className="stats-info">
@@ -131,10 +123,7 @@ function Dashboard() {
                                 </div>
                             </div>
                         </div>
-                       
-                       
                     </div>
-                    
                 </div>
                 <Footer />
             </div>

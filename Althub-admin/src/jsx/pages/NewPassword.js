@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate, Link, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ALTHUB_API_URL } from "./baseURL";
 import axios from "axios";
 
 function NewPassword() {
     const queryParameters = new URLSearchParams(window.location.search)
     const token = queryParameters.get("token")
-    // console.log("type : " + type);
-
     const navigate = useNavigate();
     const [changepass, setChangePass] = useState({
         password: "",
@@ -51,9 +49,7 @@ function NewPassword() {
                     password: changepass.password
                 },
             }).then((response) => {
-                // console.log(response)
                 if (response.data.success === true) {
-                    // console.log(response);
                     setDisable(false);
                     toast.success(response.data.msg);
                     setTimeout(() => {
@@ -61,7 +57,6 @@ function NewPassword() {
                     }, [2000])
                 }
             }).catch((error) => {
-                // console.log("Errors", error);
                 setDisable(false);
                 toast.error(error.response.data.msg);
             })

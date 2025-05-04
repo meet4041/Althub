@@ -60,17 +60,17 @@ export default function Events() {
 
   useEffect(() => {
     const currentDate = new Date();
-     setShowEvent(events.filter(event => {
-        const eventDate = new Date(event.date);
-        if(type==="All"){
-            return true;
-        }else if(type==="Upcomming"){
-            return eventDate > currentDate;
-        }else{
-            return eventDate < currentDate;
-        }
-      }));
-  }, [type,events]);
+    setShowEvent(events.filter(event => {
+      const eventDate = new Date(event.date);
+      if (type === "All") {
+        return true;
+      } else if (type === "Upcomming") {
+        return eventDate > currentDate;
+      } else {
+        return eventDate < currentDate;
+      }
+    }));
+  }, [type, events]);
 
   return (
     <>
@@ -150,7 +150,7 @@ export default function Events() {
           ) : null}
         </div>
       </div>
-      {modal && <EventModal closeModal={closeModal} event={event} getEvents={getEvents}/>}
+      {modal && <EventModal closeModal={closeModal} event={event} getEvents={getEvents} />}
     </>
   );
 }

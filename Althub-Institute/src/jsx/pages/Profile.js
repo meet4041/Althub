@@ -31,7 +31,6 @@ const Profile = () => {
             method: "get",
             url: myurl,
         }).then((response) => {
-            // console.log(response.data.data.email);
             if (response.data.success === true) {
                 setProfileInfo({
                     name: response.data.data.name,
@@ -54,7 +53,6 @@ const Profile = () => {
             data: body,
             headers: { 'Content-Type': "multipart/form-data" },
         }).then((response) => {
-            // console.log(response.data.success);
             if (response.data.success === true) {
                 setProfileInfo({
                     ...profileInfo,
@@ -64,15 +62,12 @@ const Profile = () => {
         });
     };
 
-
     const handleProfileReset = () => {
         getData();
     }
 
-
     const submitHandler = (e) => {
         e.preventDefault();
-        // console.log(profileInfo.phone);
         if (validate()) {
             setDisable(true);
             axios({
@@ -89,7 +84,6 @@ const Profile = () => {
                 console.log(response);
                 if (response.data.success === true) {
                     toast.success('Profile Updated Successfully')
-                    // localStorage.setItem('AlmaPlus_Admin_Email', profileInfo.email);
                     window.location.reload();
                     setDisable(false);
                     setErrors({});
@@ -201,7 +195,6 @@ const Profile = () => {
         setErrors(errors);
         return isValid;
     };
-
 
     useEffect(() => {
         document.getElementById('page-loader').style.display = 'none';

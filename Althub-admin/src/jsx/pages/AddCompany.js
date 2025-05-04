@@ -11,10 +11,8 @@ const AddCompany = () => {
     const navigate = useNavigate();
     useEffect(() => {
         document.getElementById('page-loader').style.display = 'none';
-
         var element = document.getElementById("page-container");
         element.classList.add("show");
-
     }, []);
     const [errors, setErrors] = useState({});
     const [disable, setDisable] = useState(false);
@@ -44,7 +42,6 @@ const AddCompany = () => {
     }
 
     const handleSubmit = (e) => {
-        // e.preventDefault();
         if (validate()) {
             setDisable(true)
             var body = {
@@ -70,14 +67,9 @@ const AddCompany = () => {
                 }, 1500);
             }).catch((error) => {
                 console.log(error);
-                // toast.error(error);
                 setDisable(false);
             });
-
         } 
-        // else {
-        //     toast.error("Some Fields Missing!!")
-        // }
     };
     
   const handleImgChange = (e) => {
@@ -96,7 +88,6 @@ const AddCompany = () => {
       .catch((error) => {});
   };
 
-
     const validate = () => {
         let input = data;
         let errors = {};
@@ -106,7 +97,6 @@ const AddCompany = () => {
             isValid = false;
             errors["name_err"] = "Please Enter Company Name";
         }
-       
         if (!input["email"]) {
             isValid = false;
             errors["email_err"] = "Please Enter Company Email";
@@ -140,7 +130,6 @@ const AddCompany = () => {
                         <li className="breadcrumb-item active">Add Company</li>
                     </ol>
                     <h1 className="page-header">Add Company  </h1>
-
                     <div className="row">
                         <div className="col-xl-6 ui-sortable">
                             <div className="panel panel-inverse" data-sortable-id="form-stuff-10">
@@ -148,8 +137,6 @@ const AddCompany = () => {
                                     <h4 className="panel-title">Add Company</h4>
                                     <Link to="/company" className="btn btn-sm btn-default pull-right">Back</Link>
                                 </div>
-
-
                                 <div className="panel-body">
                                     <form>
                                         <fieldset>
@@ -160,7 +147,6 @@ const AddCompany = () => {
                                                     <div className="text-danger">{errors.name_err}</div>
                                                 </div>
                                             </div>
-
                                             <div className="row">
                                                 <div className="col-md-12 form-group">
                                                     <label htmlFor="exampleInputEmail">Email:</label>
@@ -168,7 +154,6 @@ const AddCompany = () => {
                                                     <div className="text-danger">{errors.email_err}</div>
                                                 </div>
                                             </div>
-
                                             <div className="row">
                                                 <div className="col-md-12 form-group">
                                                     <label htmlFor="exampleInputphone">Phone Number:</label>
@@ -208,7 +193,6 @@ const AddCompany = () => {
                                                     ) : (
                                                         ""
                                                     )}
-
                                                 </div>
                                             </div>
                                            

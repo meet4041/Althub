@@ -93,7 +93,6 @@ const sendInvitationMail = async (name, email, tempPass) => {
 const registerInstitute = async (req, res) => {
     try {
         const spassword = await securePassword(req.body.password);
-
         const institute = new Institute({
             name: req.body.name,
             address: req.body.address,
@@ -141,18 +140,12 @@ const instituteLogin = async (req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
-
-        // console.log(email);
-        // console.log(password);
-
         const instituteData = await Institute.findOne({ email: email });
 
         if (instituteData) {
             const password_match = await bcryptjs.compare(password, instituteData.password);
             if (password_match) {
-
                 const tokenData = await create_token(instituteData._id);
-
                 const instituteResult = {
                     _id: instituteData._id,
                     name: instituteData.name,
@@ -181,7 +174,6 @@ const instituteLogin = async (req, res) => {
         }
     } catch (error) {
         res.status(400).send(error.message);
-        // console.log(error.message);
         console.log("Error in Login Institute : " + error.message);
     }
 }

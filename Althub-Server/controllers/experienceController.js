@@ -14,7 +14,6 @@ const addExperience = async (req, res) => {
         });
         const experience_data = await experience.save();
         res.status(200).send({ success: true, data: experience_data });
-        // console.log(course);
     } catch (error) {
         res.status(400).send({ success: false, msg: error.message });
     }

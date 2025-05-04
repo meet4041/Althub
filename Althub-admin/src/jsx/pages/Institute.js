@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from 'react';
-// import { Link, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
@@ -9,7 +8,6 @@ import SweetAlert from 'react-bootstrap-sweetalert';
 import axios from 'axios';
 
 const Institutes = () => {
-    // let navigate = useNavigate();
     const [Institutes, setInstitutes] = useState([]);
     const [displayInstitutes, setDisplayInstitutes] = useState([]);
     const rows = [10, 20, 30];
@@ -31,7 +29,6 @@ const Institutes = () => {
         axios({
             method: "get",
             url: `${ALTHUB_API_URL}/api/getInstitutes`,
-            // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
             console.log(response.data.data);
@@ -39,32 +36,6 @@ const Institutes = () => {
 
         });
     };
-
-    // const handleDeleteCategory = (id) => {
-    //     setDeleteId(id);
-    //     setAlert(true);
-    // }
-
-    // const DeleteCategory = () => {
-    //     var bodyFormData = new URLSearchParams();
-    //     bodyFormData.append('auth_code', "PlUsOnE$123");
-    //     bodyFormData.append('cat_id', deleteId);
-    //     const myurl = `${PLUS_ONE_API_URL}api/admin/delete-category`;
-    //     axios({
-    //         method: "post",
-    //         url: myurl,
-    //         data: bodyFormData,
-    //         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    //     }).then((response) => {
-    //         if (response.data.success === true) {
-    //             getCategoryList();
-    //             setDeleteId('');
-    //             setAlert(false);
-    //             setAlert2(true);
-    //         }
-    //     })
-    // }
-
     useEffect(() => {
         setDisplayInstitutes(Institutes);
     }, [Institutes]);
@@ -72,7 +43,6 @@ const Institutes = () => {
     const indexOfLastInstitute = currentPage * InstitutesPerPage;
     const indexOfFirstInstitute = indexOfLastInstitute - InstitutesPerPage;
     const currentInstitutes = displayInstitutes.slice(indexOfFirstInstitute, indexOfLastInstitute);
-
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(displayInstitutes.length / InstitutesPerPage); i++) {
@@ -98,21 +68,18 @@ const Institutes = () => {
 
     const handleApply = () => {
         if (from && to) {
-            // getInstitutesData(from,to);
             setCurrentPage(1);
         }
     }
     const [deleteId, setDeleteId] = useState('');
     const [alert, setAlert] = useState(false);
     const [alert2, setAlert2] = useState(false);
-
     const handleDeleteInstitute = (id) => {
         setDeleteId(id);
         setAlert(true);
     }
 
     const DeleteInstitute = () => {
-        // console.log("delete button");
         axios({
             method: "delete",
             url: `${ALTHUB_API_URL}/api/deleteInstitute/${deleteId}`,
@@ -126,7 +93,6 @@ const Institutes = () => {
         })
     }
     const handleReset = () => {
-        // getInstitutesData('none','none');
         setCurrentPage(1);
         setFrom('');
         setTo('');
@@ -142,12 +108,7 @@ const Institutes = () => {
                         <li className="breadcrumb-item"><Link to="/dashboard">Dashboard</Link></li>
                         <li className="breadcrumb-item active">Institutes</li>
                     </ol>
-
-                    <h1 className="page-header">Institutes
-                        {/* <Link to="/add-institute" className="btn btn-success mx-3" ><i className="fa fa-plus"></i></Link> */}
-                    
-                    </h1>
-
+                    <h1 className="page-header">Institutes</h1>
                     <div className="card">
                         <div className="card-body">
                             <div class="form-outline mb-4">

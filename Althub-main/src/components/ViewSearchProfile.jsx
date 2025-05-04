@@ -81,7 +81,6 @@ export default function ViewSearchProfile({ socket }) {
         },
       })
         .then((Response) => {
-          // console.log(Response.data.data);
           setExperience(Response.data.data);
         })
         .catch((Error) => {
@@ -146,7 +145,6 @@ export default function ViewSearchProfile({ socket }) {
         method: "put",
       })
         .then((Response) => {
-          // console.log(Response);
           toast(Response.data);
           getUser();
           handleConversation();
@@ -176,7 +174,6 @@ export default function ViewSearchProfile({ socket }) {
           method: "post",
         })
           .then((Response) => {
-            // console.log(Response);
           })
           .catch((error) => {
             console.log(error.response.data);

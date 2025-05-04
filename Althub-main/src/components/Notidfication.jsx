@@ -38,8 +38,6 @@ export default function Notidfication() {
       });
   };
 
-
-
   const formatTime = (timestamp) => {
     const messageTime = new Date(timestamp);
     const now = new Date();
@@ -67,8 +65,6 @@ export default function Notidfication() {
     localStorage.clear();
     nav("/");
   };
-
-
 
   useEffect(() => {
     getUser();
@@ -163,9 +159,6 @@ export default function Notidfication() {
                       {formatTime(elem.date)}
                     </div>
                   </div>
-                  {/* <div class="notification-option">
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                  </div> */}
                 </div>
               ))}
             </div>

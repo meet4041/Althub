@@ -3,7 +3,6 @@ const notification_route = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { requireAuth } = require("../middleware/authMiddleware");
-
 notification_route.use(bodyParser.json());
 notification_route.use(bodyParser.urlencoded({ extended: true }));
 notification_route.use(cookieParser());

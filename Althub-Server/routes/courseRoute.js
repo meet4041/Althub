@@ -13,7 +13,6 @@ const course_controller = require("../controllers/courseController");
 
 //course routes
 course_route.post('/addCourse', course_controller.addCourse);
-// course_route.get('/getCourse', requireAuth, course_controller.getCourse);
 course_route.get('/getCourse', course_controller.getCourse);
 course_route.delete('/deleteCourse/:id', course_controller.deleteCourse);
 course_route.post('/editCourse', course_controller.editCourse);

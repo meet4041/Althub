@@ -19,14 +19,12 @@ const EditFinancialAid = () => {
     });
     const location = useLocation();
     const state = location.state.data;
-    // console.log("data:", state);
 
     const getAidData = () => {
         setData({
             id: state._id,
             claimed: state.claimed,
         })
-        // console.log(data);
     }
     useEffect(() => {
         document.getElementById('page-loader').style.display = 'none';

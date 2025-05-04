@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import { ALTHUB_API_URL } from '../pages/baseURL';
 
-
 function Menu() {
    const navigate = useNavigate();
    if (localStorage.getItem("AlmaPlus_admin_Id") == null) {
@@ -20,7 +19,6 @@ function Menu() {
    }
 
    const [admin, setAdmin] = useState({
-     
       name: '',
       profilepic: ''
    })
@@ -30,27 +28,7 @@ function Menu() {
    var feedbackClass = window.location.pathname.match(/^\/feedback/) ? "active" : "";
    var companyClass = window.location.pathname.match(/^\/company/) ? "active" : "";
 
-
    const admin_Id = localStorage.getItem("AlmaPlus_admin_Id");
-   // const admin_email =localStorage.getItem("AlmaPlus_admin_Email");
-   // const getData = () => {
-   //    const myurl = `${ALMA_PLUS_API_URL}/api/getAdminById/${admin_Id}`;
-   //    axios({
-   //       method: "get",
-   //       url: myurl,
-   //    }).then((response) => {
-   //       console.log(response.data.data);
-   //       if (response.data.success === true) {
-   //          setAdmin({
-   //             name: response.data.data[0].name,
-   //             profilepic: response.data.data[0].profilepic
-   //          })
-   //       }
-   //    });
-   // };
-
-   // useEffect(() => getData(), [])
-
    const getData = useCallback(() => {
       const myurl = `${ALTHUB_API_URL}/api/getAdminById/${admin_Id}`;
       axios.get(myurl).then((response) => {
@@ -69,7 +47,6 @@ function Menu() {
    }, [getData]);
    
 useEffect(() => {
-   // document.getElementById('page-loader').style.display = 'none';
    var element = document.getElementById("page-container");
    element.classList.add("show");
 }, []);
@@ -79,14 +56,12 @@ useEffect(() => {
          <div id="header" className="header navbar-default">
             <div className="navbar-header">
                <Link to="/dashboard" className="navbar-brand">
-                  {/* <span className="navbar-logo"/> */}
                   <img src='Logo1.jpeg' style={{ marginRight: '6px' }} alt="logo" />
-                  {/*<b>Althub</b>*/} <b>Admin</b></Link>
+                  <b>Admin</b></Link>
             </div>
             <ul className="navbar-nav navbar-right">
                <li className="dropdown navbar-user">
                   <a className="dropdown-toggle" data-toggle="dropdown">
-                     {/* <img src={`${ALMA_PLUS_API_URL}${admin.profilepic}`}   alt=""  style={{ width: '41px' , height:'41px' }}  /> */}
                      <span className="d-none d-md-inline">{admin.name}</span> <b className="caret"></b>
                   </a>
                   <div className="dropdown-menu dropdown-menu-right">
@@ -98,17 +73,13 @@ useEffect(() => {
          </div>
          <div id="sidebar" className="sidebar">
             <div data-scrollbar="true" data-height="100%">
-
                <ul className="nav">
-
                   <li className={dashboardClass}>
                      <Link to="/dashboard" >
                         <i className="fa fa-th-large"></i>
                         <span>Dashboard</span>
                      </Link>
                   </li>
-                  
-
   <li className={usersClass}>
                      <Link to="/users" >
                         <i className="fa fa-users"></i>
@@ -135,13 +106,10 @@ useEffect(() => {
                         <span>Feedback</span>
                      </Link>
                   </li>
-
                </ul>
             </div>
          </div>
-
          <div className="sidebar-bg"></div>
-
       </>
    )
 }

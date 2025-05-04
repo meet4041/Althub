@@ -12,7 +12,6 @@ const requireAuth = (req, res, next) => {
             }
             else {
                 console.log(decodedToken);
-                // res.status(400).send({ success: true, token: decodedToken });
                 next();
             }
         });

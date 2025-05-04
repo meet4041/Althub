@@ -2,7 +2,6 @@ const express = require("express");
 const experience_route = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-
 experience_route.use(bodyParser.json());
 experience_route.use(bodyParser.urlencoded({ extended: true }));
 const multer = require("multer");

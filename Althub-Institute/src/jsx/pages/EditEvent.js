@@ -10,22 +10,14 @@ import Footer from '../layout/Footer';
 
 const EditEvent = () => {
     const navigate = useNavigate();
-
     const [errors, setErrors] = useState({});
     const [disable, setDisable] = useState(false);
-    // const [states, setStates] = useState([]);
-    // const [cities, setCities] = useState([]);
-    // const [statess, setStatess] = useState(0);
-    // const [citys, setCitys] = useState(0);
     const [data, setData] = useState({
         id: "",
         title: "",
         description: "",
         date: "",
         venue: "",
-        // country: "",
-        // state: "",
-        // city: ""
     });
     const location = useLocation();
     const state = location.state.data;
@@ -88,7 +80,6 @@ const EditEvent = () => {
                     "content-type": "multipart/form-data"
                 },
             }).then((response) => {
-                // console.log(response.data.data);
                 handleReset();
                 setDisable(false);
                 toast.success("Event Updated");

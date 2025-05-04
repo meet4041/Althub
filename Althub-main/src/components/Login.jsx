@@ -67,7 +67,7 @@ export default function Login() {
         <div className="main-box">
           <div className="main">
             <div className="login-logo">
-              <img src="images/Logo1.jpeg" alt=""/>
+              <img src="images/Logo1.jpeg" alt="" />
             </div>
             <div className="title">Login</div>
             <div className="input-box ">

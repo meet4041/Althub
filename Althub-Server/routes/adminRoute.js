@@ -2,14 +2,11 @@ const express = require("express");
 const admin_route = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-
 admin_route.use(cookieParser());
 admin_route.use(bodyParser.json());
 admin_route.use(bodyParser.urlencoded({ extended: true }));
-
 const multer = require("multer");
 const path = require('path');
-
 admin_route.use(express.static('public'));
 
 const storage = multer.diskStorage({

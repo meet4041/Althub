@@ -2,7 +2,6 @@ const express = require("express");
 const feedback_route = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-// const { requireAuth } = require("../middleware/authMiddleware");
 
 feedback_route.use(bodyParser.json());
 feedback_route.use(bodyParser.urlencoded({ extended: true }));

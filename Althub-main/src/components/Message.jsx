@@ -20,7 +20,7 @@ export default function Message({ socket }) {
   const location = useLocation();
   const width = window.innerWidth < 1200;
   const msgBoxRef = useRef(null);
-  const [searchName,setSearchName]=useState("");
+  const [searchName, setSearchName] = useState("");
 
   const getConversation = () => {
     axios({
@@ -28,9 +28,7 @@ export default function Message({ socket }) {
       method: "get",
     })
       .then((response) => {
-        // console.log(response);
         setConversationID(response.data.data);
-        // console.log("conversationID :" + conversationID);
       })
       .catch((error) => {
         console.log(error);
@@ -45,7 +43,6 @@ export default function Message({ socket }) {
       })
         .then((Response) => {
           setUser(Response.data.data[0]);
-          // console.log(Response);
         })
         .catch((error) => {
           console.log(error);
@@ -62,7 +59,6 @@ export default function Message({ socket }) {
         person2: userid,
       },
     }).then((Response) => {
-      // console.log(Response.data.data[0]._id);
       setCurrentId(Response.data.data[0]._id);
     });
   };
@@ -76,8 +72,9 @@ export default function Message({ socket }) {
         createdAt: Date.now(),
       });
     });
+
     if (location.state !== null) {
-      setName(location.state.fname+" "+location.state.lname);
+      setName(location.state.fname + " " + location.state.lname);
       setReceiverId(location.state._id);
       setProfilepic(location.state.profilepic);
       searchConversation();
@@ -99,7 +96,6 @@ export default function Message({ socket }) {
         method: "get",
       })
         .then((response) => {
-          // console.log(response);
           setMessages(response.data.data);
         })
         .catch((error) => {
@@ -110,7 +106,7 @@ export default function Message({ socket }) {
 
   useEffect(() => {
     getMessages();
-  }, [currentId,getMessages]);
+  }, [currentId, getMessages]);
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -118,7 +114,7 @@ export default function Message({ socket }) {
       senderId: userid,
       receiverId: receiverId,
       text: newMsg,
-      time:new Date()
+      time: new Date()
     });
 
     if (newMsg !== "") {
@@ -129,13 +125,13 @@ export default function Message({ socket }) {
           conversationId: currentId,
           sender: userid,
           text: newMsg,
-          time:new Date(),
+          time: new Date(),
         },
       })
         .then((response) => {
           getMessages();
           setNewMsg("");
-          scrollToEnd(); 
+          scrollToEnd();
         })
         .catch((error) => {
           console.log(error);
@@ -150,9 +146,9 @@ export default function Message({ socket }) {
 
   useEffect(() => {
     scrollToEnd();
-  },[messages]);
+  }, [messages]);
 
-  const scrollToEnd=()=>{
+  const scrollToEnd = () => {
     if (msgBoxRef.current) {
       const msgBox = msgBoxRef.current;
       msgBox.scrollTop = msgBox.scrollHeight;
@@ -181,7 +177,7 @@ export default function Message({ socket }) {
                 className="fa-sharp fa-solid fa-magnifying-glass"
                 style={{ color: "#787878" }}
               ></i>
-              <input type="text" placeholder="search" value={searchName} onChange={(e)=>setSearchName(e.target.value)}/>
+              <input type="text" placeholder="search" value={searchName} onChange={(e) => setSearchName(e.target.value)} />
             </div>
             {conversationID.length > 0 ? (
               <div className="chat-user-list">
@@ -211,13 +207,12 @@ export default function Message({ socket }) {
               ></i>
               <img src={`${WEB_URL}${profilepic}`} alt="" />
               <div className="chat-name">{name}</div>
-              {/* <div className="chat-user-option"><i className="fa-solid fa-ellipsis-vertical"></i></div> */}
             </div>
             <div className="user-chat">
               {messages.length > 0 ? (
                 <div className="msg-box" ref={msgBoxRef}>
                   {messages.map((elem) => (
-                    <ChatMessage 
+                    <ChatMessage
                       msg={elem}
                       own={userid === elem.sender ? "send" : "received"}
                     />
@@ -238,7 +233,6 @@ export default function Message({ socket }) {
                     value={newMsg}
                   />
                 </div>
-                {/* <div className="send-img"><i className="fa-regular fa-image"></i></div> */}
                 <div className="send-btn" onClick={sendMessage}>
                   Send
                 </div>

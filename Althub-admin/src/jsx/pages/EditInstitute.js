@@ -9,10 +9,8 @@ import Footer from '../layout/Footer';
 
 const EditInstitute = () => {
     const navigate = useNavigate();
-
     const [errors, setErrors] = useState({});
     const [disable, setDisable] = useState(false);
-   
     const [data, setData] = useState({
         id:"",
         name: "",
@@ -21,15 +19,11 @@ const EditInstitute = () => {
         phone:"",
         website:"",
         address:""
-
-
     });
     const location = useLocation();
     const state = location.state.data;
     console.log("data", state);
-
     const getuserData = () => {
-       
             setData({
                 id:state.id,
                 name: state.name,
@@ -39,17 +33,10 @@ const EditInstitute = () => {
                 website:state.website,
                 address:state.address
             })
-       
     }
-
-
-
     useEffect(() => {
-        // document.getElementById('page-loader').style.display = 'none';
-
         var element = document.getElementById("page-container");
         element.classList.add("show");
-
         getuserData();
     }, []);
 
@@ -63,8 +50,6 @@ const EditInstitute = () => {
             website:"",
             address:""
         });
-    
-        
     }
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -86,7 +71,6 @@ const EditInstitute = () => {
                     website:data.website
                 },
             }).then((response) => {
-                // console.log(response.data.data);
                 handleReset();
                 setDisable(false);
                 toast.success("Institute Updated");
@@ -97,13 +81,11 @@ const EditInstitute = () => {
                 console.log(error);
                 setDisable(false);
             });
-
         }
     };
 
     const validate = () => {
         let input = data;
-
         let errors = {};
         let isValid = true;
 
@@ -127,12 +109,9 @@ const EditInstitute = () => {
             isValid = false;
             errors["phone_err"] = "Please Enter Institute Contact";
         }
-        
-
         setErrors(errors);
         return isValid;
     }
-
     return (
         <Fragment>
             <ToastContainer />
@@ -145,8 +124,7 @@ const EditInstitute = () => {
                         <li className="breadcrumb-item"><Link to="/institute">Institutes</Link></li>
                         <li className="breadcrumb-item active">Edit Institute</li>
                     </ol>
-                    <h1 className="page-header">Edit Institute  </h1>
-
+                    <h1 className="page-header">Edit Institute </h1>
                     <div className="row">
                         <div className="col-xl-6 ui-sortable">
                             <div className="panel panel-inverse" data-sortable-id="form-stuff-10">
@@ -154,8 +132,6 @@ const EditInstitute = () => {
                                     <h4 className="panel-title">Edit Institute</h4>
                                     <Link to="/institute" className="btn btn-sm btn-default pull-right">Back</Link>
                                 </div>
-
-
                                 <div className="panel-body">
                                     <form onSubmit={(e) => submitHandler(e)} >
                                         <fieldset>
@@ -174,7 +150,6 @@ const EditInstitute = () => {
                                                     <div className="text-danger">{errors.address_err}</div>
                                                 </div>
                                             </div>
-
                                             <div className="row">
                                                 <div className="col-md-12 form-group">
                                                     <label htmlFor="exampleInputWebsite"> Website URL </label>
@@ -196,24 +171,13 @@ const EditInstitute = () => {
                                                     <div className="text-danger">{errors.phone_err}</div>
                                                 </div>
                                             </div>
-                                            {/* <div className="row">
-                                                <div className="col-md-12 form-group">
-                                                    <label htmlFor="exampleInputPassword">Password </label>
-                                                    <input type='number' className="form-control" id="exampleInputPassword" placeholder="Enter Institute Password" name="password" value={data.password}  />
-                                                    <div className="text-danger">{errors.password_err}</div>
-                                                </div>
-                                            </div> */}
                                             <div className="row">
                                                 <div className="col-md-12 form-group">
                                                     <label htmlFor="exampleprofile">Profile Pic:</label><br/>
                                                     <img src={`${ALTHUB_API_URL}${data.image}`}alt={data.name} style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}/><br/><br/>
                                                     <input type="file" className="form-control" id="exampleprofile" placeholder="Enter Profile pic" name="Profilepic" onChange={handleChange}  src={data.image}  />
-                                                    
-                                                    {/* <div className="text-danger">{errors.email_err}</div> */}
                                                 </div>
                                             </div>
-
-                                           
                                             <button type="submit" className="btn btn-sm btn-success m-r-5" disabled={disable} >{disable ? 'Processing...' : 'Update'}</button>
                                         </fieldset>
                                     </form>

@@ -218,7 +218,6 @@ export default function ViewProfile() {
                   ) : null}
                 </div>
               </div>
-
               <div className="edit-icon">
                 <i
                   class="fa-solid fa-pencil"

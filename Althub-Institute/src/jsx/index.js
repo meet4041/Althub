@@ -27,29 +27,23 @@ const Markup = () => {
             <Route path='/' element={<Login />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-
             <Route path='/forgot-password' element={<ForgotPassword />} />
             <Route path='/new-password' element={<NewPassword />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/users' element={<Users />} />
             <Route path='/add-user' element={<AddUser />} />
-
             <Route path='/courses' element={<Courses />} />
             <Route path='/add-course' element={<AddCourse />} />
             <Route path='/edit-course' element={<EditCourse />} />
-
             <Route path='/events' element={<Events />} />
             <Route path='/add-event' element={<AddEvent />} />
             <Route path='/edit-event' element={<EditEvent />} />
-
             <Route path='/posts' element={<Posts />} />
             <Route path='/add-post' element={<AddPost />} />
-
             <Route path='/financial-aid' element={<FinancialPole />} />
             <Route path='/add-financial-aid' element={<AddFinancialHelp />} />
             <Route path='/edit-financial-aid' element={<EditFinancialAid />} />
-
         </Routes>
     )
 }

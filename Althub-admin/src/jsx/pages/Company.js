@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from 'react';
-// import { Link, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
@@ -9,7 +8,6 @@ import SweetAlert from 'react-bootstrap-sweetalert';
 import axios from 'axios';
 
 const Company = () => {
-    // let navigate = useNavigate();
     const [companies, setCompanies] = useState([]);
     const [displaycompanies, setDisplayCompanies] = useState([]);
     const rows = [10, 20, 30];
@@ -23,24 +21,18 @@ const Company = () => {
         var element = document.getElementById("page-container");
         element.classList.add("show");
         getCompaniesData();
-
     }, []);
 
     const getCompaniesData = () => {
-
         axios({
             method: "get",
             url: `${ALTHUB_API_URL}/api/getCompanies`,
-            // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
             console.log(response.data.data);
             setCompanies(response.data.data);
-
         });
     };
-
-
     useEffect(() => {
         setDisplayCompanies(companies);
     }, [companies]);
@@ -48,7 +40,6 @@ const Company = () => {
     const indexOfLastcompany = currentPage * companiesPerPage;
     const indexOfFirstcompany = indexOfLastcompany - companiesPerPage;
     const currentcompanies = displaycompanies.slice(indexOfFirstcompany, indexOfLastcompany);
-
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(displaycompanies.length / companiesPerPage); i++) {
@@ -74,21 +65,18 @@ const Company = () => {
 
     const handleApply = () => {
         if (from && to) {
-            // getcompaniesData(from,to);
             setCurrentPage(1);
         }
     }
     const [deleteId, setDeleteId] = useState('');
     const [alert, setAlert] = useState(false);
     const [alert2, setAlert2] = useState(false);
-
     const handleDeletecompany = (id) => {
         setDeleteId(id);
         setAlert(true);
     }
 
     const DeleteCompany = () => {
-        // console.log("delete button");
         axios({
             method: "delete",
             url: `${ALTHUB_API_URL}/api/deletecompany/${deleteId}`,
@@ -102,7 +90,6 @@ const Company = () => {
         })
     }
     const handleReset = () => {
-        // getcompaniesData('none','none');
         setCurrentPage(1);
         setFrom('');
         setTo('');
@@ -155,7 +142,6 @@ const Company = () => {
                                                         <td>{elem.phone ? elem.phone : ''}</td>
                                                         <td>{elem.website}</td>
                                                         <td>
-                                                        {/* <i className='fa fa-edit' style={{ color: "green", cursor: "pointer" }} onClick={() => { navigate('/edit-company', { state: { data: elem } }) }}></i> */}
                                                         <i className='fa fa-trash' style={{ color: "red", cursor: "pointer", marginLeft: "5px" }} onClick={() => { handleDeletecompany(elem._id) }}></i></td>
                                                     </tr>
                                                 ) : <tr><td >No Record Found..</td></tr>}

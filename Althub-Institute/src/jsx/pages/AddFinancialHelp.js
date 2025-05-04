@@ -13,12 +13,10 @@ const AddFinancialHelp = () => {
         document.getElementById('page-loader').style.display = 'none';
         var element = document.getElementById("page-container");
         element.classList.add("show");
-
     }, []);
 
     const institute_Id = localStorage.getItem("AlmaPlus_institute_Id");
     const institute_Name = localStorage.getItem("AlmaPlus_institute_Name");
-
     const [errors, setErrors] = useState({});
     const [disable, setDisable] = useState(false);
 
@@ -61,7 +59,6 @@ const AddFinancialHelp = () => {
     };
 
     const submitHandler = (e) => {
-        // e.preventDefault();
         if (validate()) {
             setDisable(true)
             axios({
@@ -77,7 +74,6 @@ const AddFinancialHelp = () => {
                     dueDate: data.dueDate
                 },
             }).then((response) => {
-                // console.log(response.data.data);
                 handleReset();
                 setDisable(false);
                 toast.success("Financial aid added");
@@ -88,7 +84,6 @@ const AddFinancialHelp = () => {
                 console.log(error);
                 setDisable(false);
             });
-
         }
     };
 
@@ -143,7 +138,6 @@ const AddFinancialHelp = () => {
                                     <h4 className="panel-title">Add Financial-Aid</h4>
                                     <Link to="/financialAid" className="btn btn-sm btn-default pull-right">Back</Link>
                                 </div>
-
 
                                 <div className="panel-body">
                                     <form>

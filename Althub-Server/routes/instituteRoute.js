@@ -1,7 +1,6 @@
 const express = require("express");
 const institute_route = express();
 const bodyParser = require("body-parser");
-
 institute_route.use(bodyParser.json());
 institute_route.use(bodyParser.urlencoded({ extended: true }));
 const multer = require("multer");

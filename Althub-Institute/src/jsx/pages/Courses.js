@@ -9,8 +9,6 @@ import axios from 'axios';
 
 const Courses = () => {
     const institute_Id = localStorage.getItem("AlmaPlus_institute_Id");
-
-    // let navigate = useNavigate();
     let navigate = useNavigate();
     const [courses, setCourses] = useState([]);
     const [displayCourses, setDisplayCourses] = useState([]);
@@ -25,19 +23,14 @@ const Courses = () => {
         var element = document.getElementById("page-container");
         element.classList.add("show");
         getCoursesData();
-
     }, []);
 
     const getCoursesData = () => {
         axios({
             method: "get",
             url: `${ALTHUB_API_URL}/api/getCourseByInstitute/${institute_Id}`,
-            // data: bodyFormData,
-            // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
-            // console.log(response.data.data);
             setCourses(response.data.data);
-
         });
     };
 
@@ -48,7 +41,6 @@ const Courses = () => {
     const indexOfLastCourse = currentPage * coursesPerPage;
     const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
     const currentCourses = displayCourses.slice(indexOfFirstCourse, indexOfLastCourse);
-
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(displayCourses.length / coursesPerPage); i++) {
@@ -74,13 +66,11 @@ const Courses = () => {
 
     const handleApply = () => {
         if (from && to) {
-            // getUsersData(from,to);
             setCurrentPage(1);
         }
     }
 
     const handleReset = () => {
-        // getUsersData('none','none');
         setCurrentPage(1);
         setFrom('');
         setTo('');
@@ -95,7 +85,6 @@ const Courses = () => {
     }
 
     const DeleteCourse = () => {
-        // console.log("delete button");
         axios({
             method: "delete",
             url: `${ALTHUB_API_URL}/api/deleteCourse/${deleteId}`,

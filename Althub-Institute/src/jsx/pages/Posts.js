@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from 'react';
-// import { Link, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
@@ -10,8 +9,6 @@ import SweetAlert from 'react-bootstrap-sweetalert';
 
 const Posts = () => {
     const institute_Id = localStorage.getItem("AlmaPlus_institute_Id");
-
-    // let navigate = useNavigate();
     const [posts, setPosts] = useState([]);
     const [displayPosts, setDisplayPosts] = useState([]);
     const rows = [10, 20, 30];
@@ -32,7 +29,6 @@ const Posts = () => {
         axios({
             method: "get",
             url: `${ALTHUB_API_URL}/api/getPostById/${institute_Id}`,
-            // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
             console.log(response.data.data);
@@ -47,7 +43,6 @@ const Posts = () => {
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPost = displayPosts.slice(indexOfFirstPost, indexOfLastPost);
-
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(displayPosts.length / setPostsPerPage); i++) {
@@ -72,13 +67,11 @@ const Posts = () => {
 
     const handleApply = () => {
         if (from && to) {
-            // getUsersData(from,to);
             setCurrentPage(1);
         }
     }
 
     const handleReset = () => {
-        // getUsersData('none','none');
         setCurrentPage(1);
         setFrom('');
         setTo('');
@@ -94,7 +87,6 @@ const Posts = () => {
     }
 
     const DeletePost = () => {
-        // console.log("delete button");
         axios({
             method: "delete",
             url: `${ALTHUB_API_URL}/api/deletePost/${deleteId}`,

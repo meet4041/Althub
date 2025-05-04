@@ -3,7 +3,6 @@ const education_route = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { requireAuth } = require("../middleware/authMiddleware");
-
 education_route.use(bodyParser.json());
 education_route.use(bodyParser.urlencoded({ extended: true }));
 education_route.use(cookieParser());

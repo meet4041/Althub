@@ -22,7 +22,6 @@ const FeedBack = () => {
         var element = document.getElementById("page-container");
         element.classList.add("show");
         getFeedBackData();
-
     }, []);
 
     const getFeedBackData = () => {
@@ -30,7 +29,6 @@ const FeedBack = () => {
         axios({
             method: "get",
             url: `${ALTHUB_API_URL}/api/getFeedback`,
-            // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
             console.log(response.data.data);
@@ -38,9 +36,6 @@ const FeedBack = () => {
 
         });
     };
-
-   
-
     useEffect(() => {
         setDisplayFeedBack(feedback);
     }, [feedback]);
@@ -48,7 +43,6 @@ const FeedBack = () => {
     const indexOfLastUser = currentPage * feedbackPerPage;
     const indexOfFirstUser = indexOfLastUser - feedbackPerPage;
     const currentFeedBack = displayFeedBack.slice(indexOfFirstUser, indexOfLastUser);
-
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(displayFeedBack.length / feedbackPerPage); i++) {
@@ -64,8 +58,6 @@ const FeedBack = () => {
             let search = e.target.value;
             setDisplayFeedBack(feedback.filter(
                 (elem) =>
-                    // elem.rate && elem.rate.toLowerCase().includes(search.toLowerCase()) 
-                    // ||
                     elem.message &&  elem.message.toLowerCase().includes(search.toLowerCase())
             ));
         } else {
@@ -75,21 +67,18 @@ const FeedBack = () => {
 
     const handleApply = () => {
         if (from && to) {
-            // getFeedBackData(from,to);
             setCurrentPage(1);
         }
     }
     const [deleteId, setDeleteId] = useState('');
     const [alert, setAlert] = useState(false);
     const [alert2, setAlert2] = useState(false);
-
     const handleDeleteUser = (id) => {
         setDeleteId(id);
         setAlert(true);
     }
 
     const DeleteUser = () => {
-        // console.log("delete button");
         axios({
             method: "delete",
             url: `${ALTHUB_API_URL}/api/deleteFeedback/${deleteId}`,
@@ -103,7 +92,6 @@ const FeedBack = () => {
         })
     }
     const handleReset = () => {
-        // getFeedBackData('none','none');
         setCurrentPage(1);
         setFrom('');
         setTo('');
@@ -119,11 +107,7 @@ const FeedBack = () => {
                         <li className="breadcrumb-item"><Link to="/dashboard">Dashboard</Link></li>
                         <li className="breadcrumb-item active">FeedBack</li>
                     </ol>
-
-                    <h1 className="page-header">FeedBack
-                       
-                    </h1>
-
+                    <h1 className="page-header">FeedBack</h1>
                     <div className="card">
                         <div className="card-body">
                             <div class="form-outline mb-4">

@@ -14,8 +14,6 @@ const addPost = async (req, res) => {
             description: req.body.description,
             date: req.body.date,
             photos: req.images,
-            // likes: req.body.likes,
-            // comments: req.body.comments
         });
         const userData = await User.findOne({ _id: req.body.userid });
 
@@ -42,8 +40,6 @@ const instituteAddPost = async (req, res) => {
             profilepic: req.body.profilepic,
             description: req.body.description,
             photos: req.images,
-            // likes: req.body.likes,
-            // comments: req.body.comments
         });
         const instituteData = await Institute.findOne({ _id: req.body.userid });
 
@@ -144,7 +140,6 @@ const getFriendsPost = async (req, res) => {
             })
         );
         res.status(200).json(userPosts.concat(...friendPosts));
-        // res.send(currentUser);
     } catch (err) {
         res.status(500).json(err);
     }

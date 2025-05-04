@@ -72,19 +72,17 @@ const EditProfileModal = ({ closeModal, user, getUser }) => {
 
   useEffect(() => {
     setUserData(user);
-    let arr=[];
-    //user.languages&& JSON.parse(user.languages).map((elem)=>{
-    user.languages&& JSON.parse(user.languages).forEach((elem)=>{
-          arr.push({value:elem,label:elem});
-        })
+    let arr = [];
+    user.languages && JSON.parse(user.languages).forEach((elem) => {
+      arr.push({ value: elem, label: elem });
+    })
     setLanguages(arr);
-     arr=[];
-     //user.skills&&  JSON.parse(user.skills).map((elem)=>{
-     user.skills&&  JSON.parse(user.skills).forEach((elem)=>{
-          arr.push({value:elem,label:elem});
-        })
+    arr = [];
+    user.skills && JSON.parse(user.skills).forEach((elem) => {
+      arr.push({ value: elem, label: elem });
+    })
     setSkills(arr);
-    setDob(user.dob&&user.dob.split("T")[0]);
+    setDob(user.dob && user.dob.split("T")[0]);
     document.body.style.overflowY = "hidden";
     return () => {
       document.body.style.overflowY = "scroll";
@@ -173,7 +171,6 @@ const EditProfileModal = ({ closeModal, user, getUser }) => {
         },
       })
         .then((response) => {
-          // console.log(response);
           toast.success("Profile Updated!!");
           getUser();
           closeModal();
@@ -203,7 +200,7 @@ const EditProfileModal = ({ closeModal, user, getUser }) => {
             type="text"
             name="fname"
             placeholder="First Name"
-            value={userData.fname&&userData.fname}
+            value={userData.fname && userData.fname}
             onChange={handleChange}
           />
           <div className="text-danger">{errors.fname_err}</div>
@@ -212,7 +209,7 @@ const EditProfileModal = ({ closeModal, user, getUser }) => {
             type="text"
             name="lname"
             placeholder="Last Name"
-            value={userData.lname&&userData.lname}
+            value={userData.lname && userData.lname}
             onChange={handleChange}
           />
           <div className="text-danger">{errors.lname_err}</div>
@@ -300,7 +297,7 @@ const EditProfileModal = ({ closeModal, user, getUser }) => {
             onChange={handleChange}
           />
           <span>Languages</span>
-           <Select
+          <Select
             options={option1}
             isMulti
             onChange={handleSelect1}
@@ -354,7 +351,7 @@ const EditProfileModal = ({ closeModal, user, getUser }) => {
             value={userData.about}
             onChange={handleChange}
           />
-         
+
 
           <div className="buttons">
             <input

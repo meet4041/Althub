@@ -18,7 +18,6 @@ function Dashboard() {
     }, []);
     const institute_Id = localStorage.getItem("AlmaPlus_institute_Id");
     const institute_Name = localStorage.getItem("AlmaPlus_institute_Name");
-
     const [users, setUsers] = useState(0);
     const [courses, setCourses] = useState(0);
     const [events, setEvents] = useState(0);
@@ -131,10 +130,6 @@ function Dashboard() {
                                 </div>
                             </div>
                         </div>
-
-                        
-
-
                     </div>
                 </div>
                 <Footer />

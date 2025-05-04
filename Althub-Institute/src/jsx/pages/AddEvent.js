@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
-
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
@@ -67,7 +66,6 @@ const AddEvent = () => {
                     "content-type": "multipart/form-data"
                 },
             }).then((response) => {
-                // console.log(response.data.data);
                 handleReset();
                 setDisable(false);
                 toast.success("Event Added");
@@ -78,7 +76,6 @@ const AddEvent = () => {
                 console.log(error);
                 setDisable(false);
             });
-
         }
     };
 
@@ -129,7 +126,6 @@ const AddEvent = () => {
                                     <Link to="/events" className="btn btn-sm btn-default pull-right">Back</Link>
                                 </div>
 
-
                                 <div className="panel-body">
                                     <form onSubmit={submitHandler}>
                                         <fieldset>
@@ -177,9 +173,7 @@ const AddEvent = () => {
                                                                 </div>
                                                             )}
                                                         </div>
-
                                                         : ""}
-
                                                 </div>
                                             </div>
                                             <button type="submit" className="btn btn-sm btn-success m-r-5" >{disable ? 'Processing...' : 'Submit'}</button>

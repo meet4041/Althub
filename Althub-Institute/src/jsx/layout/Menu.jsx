@@ -17,7 +17,6 @@ function Menu() {
       navigate(`/`);
    }
 
-
    var dashboardClass = window.location.pathname.match(/^\/dashboard/) ? "active" : "";
    var usersClass = window.location.pathname.match(/^\/users/) ? "active" : "";
    var coursesClass = window.location.pathname.match(/^\/courses/) ? "active" : "";
@@ -25,9 +24,7 @@ function Menu() {
    var postsClass = window.location.pathname.match(/^\/posts/) ? "active" : "";
    var aidClass = window.location.pathname.match(/^\/financial-aid/) ? "active" : "";
 
-
    const institute_Id = localStorage.getItem("AlmaPlus_institute_Id");
-
    const [profileInfo, setProfileInfo] = useState({
       name: '',
       image: ''
@@ -39,7 +36,6 @@ function Menu() {
          method: "get",
          url: myurl,
       }).then((response) => {
-         // console.log(response.data.data.name);
          if (response.data.success === true) {
             setProfileInfo({
                name: response.data.data.name,
@@ -48,9 +44,7 @@ function Menu() {
          }
       });
    };
-
    useEffect(() => getData(), [])
-
 
    return (
       <>
@@ -115,9 +109,7 @@ function Menu() {
                </ul>
             </div>
          </div>
-
          <div className="sidebar-bg"></div>
-
       </>
    )
 }

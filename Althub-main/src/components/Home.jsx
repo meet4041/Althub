@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback} from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -50,19 +50,6 @@ export default function Home({ socket }) {
     setFileList(e.target.files);
   };
 
-  // const getUser = () => {
-  //   axios({
-  //     method: "get",
-  //     url: `${WEB_URL}/api/searchUserById/${userid}`,
-  //   })
-  //     .then((Response) => {
-  //       setUser(Response.data.data[0]);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   const getAids = () => {
     axios({
       url: `${WEB_URL}/api/getFinancialAid`,
@@ -83,7 +70,6 @@ export default function Home({ socket }) {
     })
       .then((Response) => {
         setPost(Response.data.data.reverse());
-        // console.log(Response);
       })
       .catch((error) => {
         console.log(error);
@@ -127,7 +113,6 @@ export default function Home({ socket }) {
     })
       .then((Response) => {
         setEvents(Response.data.data);
-        // console.log(Response.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -267,7 +252,6 @@ export default function Home({ socket }) {
               <span className="profile-card-name">
                 {user.fname} {user.lname}
               </span>
-              {/* <span>{user.designation} {user.companyname?`at ${user.companyname}`:''}</span> */}
             </div>
             <div
               className="profile-card-button"
@@ -393,9 +377,6 @@ export default function Home({ socket }) {
                           </span>
                         </div>
                       </div>
-                      {/* <div className="post-option">
-                        <i className="fa-solid fa-ellipsis-vertical"></i>
-                      </div> */}
                     </div>
                     <div className="post-message">{elem.description}</div>
                     {elem.photos.length > 0 ? (
@@ -479,20 +460,6 @@ export default function Home({ socket }) {
             <div className="aid-box">
               <h2>Aid Progress Bars</h2>
               {aids.map((elem) =>
-                // <div className="aid">
-                //   {elem.image !== "" ? 
-                //   <img 
-                //     src={`${WEB_URL}${elem.image}`} /> : <img src="images/profile1.png" alt="" />
-                //   }
-                //   <div className="aid-info">
-                //     <div className="aid-info-div"><div className="name">{elem.name && elem.name}</div><div>{calWidth(elem.aid, elem.claimed)}</div></div>
-                //     <div className="progress-bar">
-                //       <div className="fill-progress-bar" style={{ width: calWidth(elem.aid, elem.claimed) }}></div>
-                //     </div>
-                //     <div className="amount"><span>₹0</span><span>₹{elem.aid}</span></div>
-                //   </div>
-                // </div>
-
                 <div className="aid">
                   {elem.image !== "" ?
                     <img
@@ -519,9 +486,7 @@ export default function Home({ socket }) {
                     </div>
                   </div>
                 </div>
-
               )}
-
             </div> : null
           }
         </div>

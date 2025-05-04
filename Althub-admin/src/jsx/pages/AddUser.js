@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
-
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
@@ -11,8 +10,6 @@ import Footer from '../layout/Footer';
 const AddUser = () => {
     const navigate = useNavigate();
     useEffect(() => {
-        // document.getElementById('page-loader').style.display = 'none';
-
         var element = document.getElementById("page-container");
         element.classList.add("show");
 
@@ -24,7 +21,6 @@ const AddUser = () => {
         name: "",
         email: "",
         number: ""
-
     });
 
     const handleChange = (e) => {
@@ -40,7 +36,6 @@ const AddUser = () => {
     }
 
     const submitHandler = (e) => {
-        // e.preventDefault();
         if (validate()) {
             setDisable(true)
             axios({
@@ -52,7 +47,6 @@ const AddUser = () => {
                     email: data.email
                 },
             }).then((response) => {
-                // console.log(response.data.data);
                 handleReset();
                 setDisable(false);
                 toast.success("User Invited");
@@ -63,7 +57,6 @@ const AddUser = () => {
                 console.log(error);
                 setDisable(false);
             });
-
         }
     };
 
@@ -109,8 +102,6 @@ const AddUser = () => {
                                     <h4 className="panel-title">Add User</h4>
                                     <Link to="/users" className="btn btn-sm btn-default pull-right">Back</Link>
                                 </div>
-
-
                                 <div className="panel-body">
                                     <form>
                                         <fieldset>
@@ -121,7 +112,6 @@ const AddUser = () => {
                                                     <div className="text-danger">{errors.name_err}</div>
                                                 </div>
                                             </div>
-
                                             <div className="row">
                                                 <div className="col-md-12 form-group">
                                                     <label htmlFor="exampleInputAddress">Email:</label>
@@ -129,7 +119,6 @@ const AddUser = () => {
                                                     <div className="text-danger">{errors.email_err}</div>
                                                 </div>
                                             </div>
-
                                             <div className="row">
                                                 <div className="col-md-12 form-group">
                                                     <label htmlFor="exampleInputAddress">Phone Number:</label>

@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
-
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
@@ -11,8 +10,6 @@ import Footer from '../layout/Footer';
 const AddInstitute = () => {
     const navigate = useNavigate();
     useEffect(() => {
-        // document.getElementById('page-loader').style.display = 'none';
-
         var element = document.getElementById("page-container");
         element.classList.add("show");
 
@@ -24,7 +21,6 @@ const AddInstitute = () => {
         name: "",
         email:"",
         website:""
-
     });
 
     const handleChange = (e) => {
@@ -36,12 +32,10 @@ const AddInstitute = () => {
             name: "",
             email:"",
             website:""
-
         });
     }
 
     const submitHandler = (e) => {
-        // e.preventDefault();
         if (validate()) {
             setDisable(true)
             axios({
@@ -53,7 +47,6 @@ const AddInstitute = () => {
                     website:data.website
                 },
             }).then((response) => {
-                // console.log(response.data.data);
                 handleReset();
                 setDisable(false);
                 toast.success("Institute Added");
@@ -64,7 +57,6 @@ const AddInstitute = () => {
                 console.log(error);
                 setDisable(false);
             });
-
         }
     };
 
@@ -91,9 +83,6 @@ const AddInstitute = () => {
         return isValid;
     }
 
-   
-    
-
     return (
         <Fragment>
             <ToastContainer />
@@ -115,8 +104,6 @@ const AddInstitute = () => {
                                     <h4 className="panel-title">Add Institute</h4>
                                     <Link to="/institute" className="btn btn-sm btn-default pull-right">Back</Link>
                                 </div>
-
-
                                 <div className="panel-body">
                                     <form>
                                         <fieldset>
@@ -127,9 +114,6 @@ const AddInstitute = () => {
                                                     <div className="text-danger">{errors.name_err}</div>
                                                 </div>
                                             </div>
-                                           
-                                           
-
                                             <div className="row">
                                                 <div className="col-md-12 form-group">
                                                     <label htmlFor="exampleInputWebsite"> Website URL </label>
@@ -144,9 +128,6 @@ const AddInstitute = () => {
                                                     <div className="text-danger">{errors.email_err}</div>
                                                 </div>
                                             </div>
-                                          
-                                            
-
                                             <button type="button" className="btn btn-sm btn-success m-r-5" onClick={submitHandler}>{disable ? 'Processing...' : 'Submit'}</button>
                                             <button type="reset" className="btn btn-sm btn-default" onClick={handleReset}>Reset</button>
                                         </fieldset>

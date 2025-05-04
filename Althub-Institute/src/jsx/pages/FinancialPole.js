@@ -8,10 +8,7 @@ import SweetAlert from 'react-bootstrap-sweetalert';
 import axios from 'axios';
 
 const FinancialPole = () => {
-    // const institute_Id = localStorage.getItem("AlmaPlus_institute_Id");
     const institute_Name = localStorage.getItem("AlmaPlus_institute_Name");
-
-    // let navigate = useNavigate();
     let navigate = useNavigate();
     const [data, setData] = useState([]);
     const [displayCourses, setDisplayCourses] = useState([]);
@@ -33,10 +30,7 @@ const FinancialPole = () => {
         axios({
             method: "get",
             url: `${ALTHUB_API_URL}/api/getFinancialAidByInstitute/${institute_Name}`,
-            // data: bodyFormData,
-            // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
-            // console.log(response.data.data);
             setData(response.data.data);
 
         });
@@ -75,13 +69,11 @@ const FinancialPole = () => {
 
     const handleApply = () => {
         if (from && to) {
-            // getUsersData(from,to);
             setCurrentPage(1);
         }
     }
 
     const handleReset = () => {
-        // getUsersData('none','none');
         setCurrentPage(1);
         setFrom('');
         setTo('');
@@ -96,7 +88,6 @@ const FinancialPole = () => {
     }
 
     const DeleteAid = () => {
-        // console.log("delete button");
         axios({
             method: "delete",
             url: `${ALTHUB_API_URL}/api/deleteFinancialAid/${deleteId}`,

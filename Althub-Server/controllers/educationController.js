@@ -13,9 +13,7 @@ const addEducation = async (req, res) => {
         });
         const education_data = await education.save();
         res.status(200).send({ success: true, data: education_data });
-        // console.log(course);
     } catch (error) {
-
     }
 }
 

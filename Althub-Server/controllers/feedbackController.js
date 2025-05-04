@@ -2,7 +2,6 @@ const Feedback = require("../models/feedbackModel");
 
 //Add feedback
 const addFeedback = async (req, res) => {
-    // console.log("addfeedback called")
     try {
         const feedback = new Feedback({
             userid: req.body.userid,

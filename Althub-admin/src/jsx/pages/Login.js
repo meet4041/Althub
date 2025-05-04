@@ -30,13 +30,11 @@ const Login = () => {
         }
     }
 
-
     const submitHandler = (e) => {
         e.preventDefault();
         if (validate()) {
             setDisable(true);
             var bodyFormData = new URLSearchParams();
-            // bodyFormData.append('auth_code', "AlmaPlus");
             bodyFormData.append('auth_code', "Althub");
             bodyFormData.append('email', loginInfo.email);
             bodyFormData.append('password', loginInfo.password);
@@ -61,7 +59,6 @@ const Login = () => {
                     navigate('/dashboard');
                 } else {
                     setDisable(false);
-                    // toast.failed('Login Failed')
                     toast.error('Incorrect Credentials')
                 }
             }).catch((error) => {
@@ -117,7 +114,6 @@ const Login = () => {
                 <div className="login login-v2" data-pageload-addclassname="animated fadeIn">
                     <div className="login-header">
                         <div className="brand">
-                            {/* <span className="logo"></span> */}
                             <img src='Logo1.jpeg' style={{ width: '160px', height: '70px',borderRadius:"8px" }} alt="logo" />
                             <b>Admin</b>
                             <small>Login for Althub Admin panel</small>
@@ -149,7 +145,6 @@ const Login = () => {
                                     >
                                     Forgot Password
                                 </button>
-
                                 <div className="text-danger">{errors.password_err}</div>
                                 <div className='text-danger'>{err}</div>
                             </div>

@@ -1,13 +1,10 @@
 const express = require("express");
 const event_route = express();
 const bodyParser = require("body-parser");
-
 event_route.use(bodyParser.json());
 event_route.use(bodyParser.urlencoded({ extended: true }));
-
 const multer = require("multer");
 const path = require('path');
-
 event_route.use(express.static('public'));
 
 //for file upload 

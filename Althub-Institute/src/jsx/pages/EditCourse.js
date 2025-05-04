@@ -3,28 +3,19 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
-
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
 
 const EditCourse = () => {
     const navigate = useNavigate();
-
     const [errors, setErrors] = useState({});
     const [disable, setDisable] = useState(false);
-    // const [states, setStates] = useState([]);
-    // const [cities, setCities] = useState([]);
-    // const [statess, setStatess] = useState(0);
-    // const [citys, setCitys] = useState(0);
     const [data, setData] = useState({
         id: "",
         name: "",
         stream: "",
         duration: ""
-        // country: "",
-        // state: "",
-        // city: ""
     });
     const location = useLocation();
     const state = location.state.data;
@@ -58,7 +49,6 @@ const EditCourse = () => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
 
-
     const submitHandler = (e) => {
         e.preventDefault();
         if (validate()) {
@@ -73,7 +63,6 @@ const EditCourse = () => {
                     duration: data.duration
                 },
             }).then((response) => {
-                // console.log(response.data.data);
                 handleReset();
                 setDisable(false);
                 toast.success("Course Updated");
@@ -161,57 +150,6 @@ const EditCourse = () => {
                                                     <div className="text-danger">{errors.duration_err}</div>
                                                 </div>
                                             </div>
-                                            {/* <div className="row">
-                                                <div className="col-md-4 form-group">
-                                                    <label htmlFor="exampleInputCountry">Country:</label>
-                                                    <select name="country" className="form-control" onChange={handleChange} value={data.country}>
-                                                        <option value="0">Select Country</option>
-                                                        <option value="United States">United States</option>
-                                                        <option value="Australia">Australia</option>
-                                                        <option value="Germany">Germany</option>
-                                                        <option value="India">India</option>
-                                                    </select>
-                                                    <div className="text-danger">{errors.country_err}</div>
-                                                </div>
-                                                <div className="col-md-4 form-group">
-                                                    <label htmlFor="exampleInputState">State:</label>
-                                                    <select name="state" className="form-control" onChange={handleChange} value={data.state}>
-                                                        <option value="">Select State</option>
-                                                        {statess === 0 ?
-                                                            <option value={data.state} >{data.state}</option>
-                                                            : ''}
-                                                        {states.length > 0 ?
-                                                            states.map((elem) => {
-                                                                return (
-                                                                    <Fragment>
-                                                                        <option value={elem.name}>{elem.name}</option>
-                                                                    </Fragment>
-                                                                )
-                                                            })
-                                                            : ''}
-                                                    </select>
-                                                    <div className="text-danger">{errors.state_err}</div>
-                                                </div>
-                                                <div className="col-md-4 form-group">
-                                                    <label htmlFor="exampleInputCity">City:</label>
-                                                    <select name="city" className="form-control" onChange={handleChange} value={data.city}>
-                                                        <option value="">Select City</option>
-                                                        {citys === 0 ?
-                                                            <option value={data.city}>{data.city}</option>
-                                                            : ''}
-                                                        {cities.length > 0 ?
-                                                            cities.map((elem) => {
-                                                                return (
-                                                                    <Fragment>
-                                                                        <option value={elem.name}>{elem.name}</option>
-                                                                    </Fragment>
-                                                                )
-                                                            })
-                                                            : ''}
-                                                    </select>
-                                                    <div className="text-danger">{errors.city_err}</div>
-                                                </div>
-                                            </div> */}
                                             <button type="submit" className="btn btn-sm btn-success m-r-5" disabled={disable} >{disable ? 'Processing...' : 'Update'}</button>
                                         </fieldset>
                                     </form>

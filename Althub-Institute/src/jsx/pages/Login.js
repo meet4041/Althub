@@ -30,7 +30,6 @@ const Login = () => {
         }
     }
 
-
     const submitHandler = (e) => {
         e.preventDefault();
         if (validate()) {

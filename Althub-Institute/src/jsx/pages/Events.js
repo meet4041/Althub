@@ -9,7 +9,6 @@ import axios from 'axios';
 
 const Events = () => {
     const institute_Id = localStorage.getItem("AlmaPlus_institute_Id");
-
     let navigate = useNavigate();
     const [events, setEvents] = useState([]);
     const [displayEvents, setDisplayEvents] = useState([]);
@@ -31,7 +30,6 @@ const Events = () => {
         axios({
             method: "get",
             url: `${ALTHUB_API_URL}/api/getEventsByInstitute/${institute_Id}`,
-            // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
             console.log(response.data.data);
@@ -47,7 +45,6 @@ const Events = () => {
     const indexOfLastEvent = currentPage * eventsPerPage;
     const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
     const currentEvents = displayEvents.slice(indexOfFirstEvent, indexOfLastEvent);
-
     const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(displayEvents.length / eventsPerPage); i++) {
@@ -73,13 +70,11 @@ const Events = () => {
 
     const handleApply = () => {
         if (from && to) {
-            // getUsersData(from,to);
             setCurrentPage(1);
         }
     }
 
     const handleReset = () => {
-        // getUsersData('none','none');
         setCurrentPage(1);
         setFrom('');
         setTo('');

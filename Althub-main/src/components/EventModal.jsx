@@ -4,7 +4,7 @@ import { WEB_URL } from "../baseURL";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const EventModal = ({ closeModal, event, getEvents}) => {
+const EventModal = ({ closeModal, event, getEvents }) => {
   const userid = localStorage.getItem("Althub_Id");
   const settings = {
     dots: true,
@@ -44,11 +44,11 @@ const EventModal = ({ closeModal, event, getEvents}) => {
       data: {
         userId: userid,
       },
-    }).then((Response)=>{
+    }).then((Response) => {
       toast(Response.data);
       closeModal();
       getEvents();
-    }).catch((error)=>{
+    }).catch((error) => {
       toast(error.response.data);
       closeModal();
     })
@@ -111,7 +111,6 @@ const EventModal = ({ closeModal, event, getEvents}) => {
           ) : null}
         </div>
       </div>
-      ss
     </>
   );
 };

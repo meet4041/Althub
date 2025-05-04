@@ -37,7 +37,6 @@ const addCompany = async (req, res) => {
         else {
             const company_data = await company.save();
             res.status(200).send({ success: true, data: company_data });
-            // console.log(course);
         }
     } catch (error) {
         res.status(400).send({ success: false, msg: "Error in Add Company" });

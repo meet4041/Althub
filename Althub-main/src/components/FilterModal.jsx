@@ -1,16 +1,16 @@
 import React from 'react'
 
-const FilterModal = ({closeModal,add, setAdd, skill, setSkill, handleFilter}) => {
-      const handleCancel=()=>{
-        setAdd("");
-        setSkill("");
-        closeModal();
-      }
+const FilterModal = ({ closeModal, add, setAdd, skill, setSkill, handleFilter }) => {
+  const handleCancel = () => {
+    setAdd("");
+    setSkill("");
+    closeModal();
+  }
   return (
     <>
-       <div className="modal-wrapper" onClick={closeModal}></div>
+      <div className="modal-wrapper" onClick={closeModal}></div>
       <div className="modal-container">
-      <div className="edit-profile-header" onClick={closeModal}>
+        <div className="edit-profile-header" onClick={closeModal}>
           <h2>Filter</h2>
           <i class="fa-solid fa-xmark close-modal"></i>
         </div>
@@ -21,7 +21,7 @@ const FilterModal = ({closeModal,add, setAdd, skill, setSkill, handleFilter}) =>
             name="city"
             placeholder="City"
             value={add}
-            onChange={(e)=>setAdd(e.target.value)}
+            onChange={(e) => setAdd(e.target.value)}
           />
           <span>Skill</span>
           <input
@@ -29,9 +29,9 @@ const FilterModal = ({closeModal,add, setAdd, skill, setSkill, handleFilter}) =>
             name="skills"
             placeholder="Skills"
             value={skill}
-            onChange={(e)=>setSkill(e.target.value)}
+            onChange={(e) => setSkill(e.target.value)}
           />
-           <div className="buttons">
+          <div className="buttons">
             <input
               type="button"
               value="Reset"
@@ -45,8 +45,8 @@ const FilterModal = ({closeModal,add, setAdd, skill, setSkill, handleFilter}) =>
               onClick={handleFilter}
             />
           </div>
-        </div> 
-        </div> 
+        </div>
+      </div>
     </>
   )
 }

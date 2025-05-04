@@ -24,7 +24,6 @@ const sendresetpasswordMail = async (name, email, token) => {
             from: config.emailUser,
             to: email,
             subject: 'For Reset Password',
-            // html: '<p>Hello ' + name + ', Please copy the link and <a href="localhost:5000/api/userResetPassword?token=' + token + '" style="color:blue"> reset your password</a></p>'
             html: '<p>Hello ' + name + ', Please copy the link to<a href="http://localhost:3000/new-password?token=' + token + '"> reset your password</a></p>'
         }
 
@@ -51,7 +50,6 @@ const createtoken = async (id) => {
         res.status(400).send(error.message);
     }
 }
-
 
 //method for password hashing
 const securePassword = async (password) => {
@@ -86,9 +84,6 @@ const registerAdmin = async (req, res) => {
 
             const token = await createtoken();
             res.cookie('jwt_token', token, { httpOnly: true });
-
-            // console.log("token part : " + token);
-
             const admin_data = await admin.save();
             res.status(200).send({ success: true, data: admin_data });
 
@@ -117,13 +112,11 @@ const uploadAdminImage = async (req, res) => {
     }
 }
 
-
 //Login admin
 const adminlogin = async (req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
-
         const adminData = await Admin.findOne({ email: email });
 
         if (adminData) {
@@ -153,15 +146,12 @@ const adminlogin = async (req, res) => {
                     data: adminResult
                 }
 
-                // console.log(tokenData);
                 res.status(200).send(response);
             }
             else {
-                //console.log("password incorrect")
                 res.status(400).send({ success: false, msg: "Admin Login details are incorrect (password incorrect)" });
             }
         } else {
-            //console.log("email not exists");
             res.status(400).send({ success: false, msg: "Admin Login details are incorrect (Register First)" });
         }
 
@@ -170,7 +160,6 @@ const adminlogin = async (req, res) => {
         console.log("Error in Login Admin : " + error.message);
     }
 }
-
 
 //admin update password
 const updatePassword = async (req, res) => {

@@ -1,13 +1,10 @@
 const express = require("express");
 const user_route = express();
 const bodyParser = require("body-parser");
-
 user_route.use(bodyParser.json());
 user_route.use(bodyParser.urlencoded({ extended: true }));
-
 const multer = require("multer");
 const path = require('path');
-
 user_route.use(express.static('public'));
 
 const storage = multer.diskStorage({
@@ -21,7 +18,6 @@ const storage = multer.diskStorage({
         cb(null, name, function (error1, success1) {
             if (error1) throw error1
         })
-
     }
 });
 

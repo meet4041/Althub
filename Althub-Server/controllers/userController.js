@@ -92,21 +92,7 @@ const registerUser = async (req, res) => {
             res.status(400).send({ success: false, msg: "User already exists" });
         }
         else {
-            // //method2
-            // const token = await user.createtoken();
-            // console.log("token part : " + token);
-            // res.cookie("jwt", token, {
-            //     expires: new Date(Date.now() + 30000),
-            //     httpOnly: true
-            // });
-            // console.log("Cookie : ", cookie);
-            // //---
-
             const token = await createtoken();
-            // res.cookie('jwt_token', token, { httpOnly: true });
-            // console.log("token part : " + token);
-            // res.send(token);
-
             const user_data = await user.save();
             res.status(200).send({ success: true, data: user_data, token: token });
         }
@@ -142,20 +128,6 @@ const userlogin = async (req, res) => {
         if (userData) {
             const passwordMatch = await bcryptjs.compare(password, userData.password);
             if (passwordMatch) {
-                // //method2
-                // const token = await userData.createtoken();
-                // console.log("token part : " + token);
-                // res.cookie("jwt", token, {
-                //     expires: new Date(Date.now() + 5000),
-                //     httpOnly: true,
-                // });
-                // console.log(`this is the cookie : ${req.cookies.jwt}`);
-                // //----
-
-                //method1
-                // const tokenData = await createtoken(userData._id);
-                // res.cookie('jwt_token', tokenData, { httpOnly: true });
-
                 const userResult = {
                     _id: userData._id,
                     fname: userData.fname,
@@ -182,15 +154,12 @@ const userlogin = async (req, res) => {
                     data: userResult,
                 }
 
-                // console.log(tokenData);
                 res.status(200).send(response);
             }
             else {
-                // console.log("password incorrect")
                 res.status(400).send({ success: false, msg: "Login details are incorrect (password incorrect)", token: tokenData });
             }
         } else {
-            // console.log("email not exists");
             res.status(400).send({ success: false, msg: "Login details are incorrect (Register First)" });
         }
 
@@ -355,7 +324,6 @@ const searchUserById = async (req, res) => {
 //Logout
 const userLogout = async (req, res) => {
     try {
-        // res.cookie('jwt_token', '');
         res.clearCookie("jwt_token");
         res.status(200).send({ success: true, msg: "successfully Loged Out" });
     } catch (error) {

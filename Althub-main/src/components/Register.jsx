@@ -165,54 +165,6 @@ export default function Register() {
     return isValid;
   };
 
-  // const handleSubmit = () => {
-  //   if (validate()) {
-
-  //     var lang = languages.map((elem) => {
-  //       return elem.value;
-  //     })
-  //     var skill = skills.map((elem) => {
-  //       return elem.value;
-  //     })
-  //     var body = {
-  //       fname: user.fname,
-  //       lname: user.lname,
-  //       gender: user.gender,
-  //       dob: user.dob,
-  //       city: user.city,
-  //       state: user.state,
-  //       nation: user.country,
-  //       profilepic: user.profilepic,
-  //       phone: user.phone,
-  //       email: user.email,
-  //       password: user.password,
-  //       languages: JSON.stringify(lang),
-  //       github: user.github,
-  //       linkedin: user.linkedin,
-  //       portfolioweb: user.portfolioweb,
-  //       skills: JSON.stringify(skill),
-  //       institute: user.institute,
-  //       role: user.role,
-  //     };
-  //     const myurl = `${WEB_URL}/api/register`;
-  //     axios({
-  //       method: "post",
-  //       url: myurl,
-  //       data: body,
-  //     })
-  //       .then((res) => {
-  //         toast.success("Register Successful");
-  //         nav("/login");
-  //       })
-  //       .catch((err) => {
-  //         toast.error(err.response.data.msg);
-  //       });
-  //   }
-  //   else {
-  //     toast.error("Some Fields Missing!!")
-  //   }
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
@@ -285,7 +237,6 @@ export default function Register() {
 
   return (
     <>
-
       <div className="form-fields-container">
         <div className="left-container">
           <div className="left-container-content">
@@ -294,26 +245,15 @@ export default function Register() {
               To keep track on your dashboard please login with your personal
               info
             </p>
-            {/* <a
-              onClick={() => {
-                nav("/login");
-              }}
-            >
-              Login
-            </a> */}
-
             <a
               href="/login"
               onClick={(e) => {
                 e.preventDefault();
                 nav("/login");
               }}
-            // style={{ textDecoration: "none", color: "blue", cursor: "pointer" }}
             >
               Login
             </a>
-
-
           </div>
           <img src="./images/Usability testing-bro.png" alt="" />
         </div>
@@ -409,7 +349,6 @@ export default function Register() {
                     <span>Male</span>
                   </div>
                   <div>
-
                     <input
                       type="radio"
                       name="gender"
@@ -422,10 +361,7 @@ export default function Register() {
                     <span>Female</span>
                   </div>
                 </div>
-
-
                 <div className="text-danger">{errors.gender_err}</div>
-
                 <input
                   type="text"
                   name="phone"

@@ -19,8 +19,8 @@ export default function Navbar({ socket }) {
   });
   const [user, setUser] = useState({});
   const [navbar, setNavbar] = useState(true);
-  const pathname = window.location.pathname;
-  // const userid = localStorage.getItem("Althub_Id");
+  const { pathname } = window.location;
+  // const pathname = window.location.pathname;
   const [mesDot, setMesDot] = useState(false);
   const [notDot, setNotDot] = useState(false);
 
@@ -202,9 +202,6 @@ export default function Navbar({ socket }) {
       getUser();
     }
     socket.emit("addUser", localStorage.getItem("Althub_Id"));
-    // socket.on("getUsers",data=>{
-    //   console.log(data);
-    // })
     socket.on("getMessage", (data) => {
       setMesDot(true); if (pathname === "/message") {
         setMesDot(false);

@@ -11,10 +11,8 @@ const AddCourse = () => {
     const navigate = useNavigate();
     useEffect(() => {
         document.getElementById('page-loader').style.display = 'none';
-
         var element = document.getElementById("page-container");
         element.classList.add("show");
-
     }, []);
 
     const institute_Id = localStorage.getItem("AlmaPlus_institute_Id");
@@ -41,7 +39,6 @@ const AddCourse = () => {
     }
 
     const submitHandler = (e) => {
-        // e.preventDefault();
         if (validate()) {
             setDisable(true)
             axios({
@@ -54,7 +51,6 @@ const AddCourse = () => {
                     duration: data.duration
                 },
             }).then((response) => {
-                // console.log(response.data.data);
                 handleReset();
                 setDisable(false);
                 toast.success("Course Added");
@@ -65,7 +61,6 @@ const AddCourse = () => {
                 console.log(error);
                 setDisable(false);
             });
-
         }
     };
 
@@ -111,7 +106,6 @@ const AddCourse = () => {
                                     <h4 className="panel-title">Add Course</h4>
                                     <Link to="/courses" className="btn btn-sm btn-default pull-right">Back</Link>
                                 </div>
-
 
                                 <div className="panel-body">
                                     <form>
