@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 
 const Register = () => {
     const [errors, setErrors] = useState({});
@@ -77,7 +77,7 @@ const Register = () => {
                 password: user.password,
                 website: user.website,
             };
-            const myurl = `${ALMA_PLUS_API_URL}/api/registerInstitute`;
+            const myurl = `${ALTHUB_API_URL}/api/registerInstitute`;
             axios({
                 method: "post",
                 url: myurl,
@@ -104,7 +104,7 @@ const Register = () => {
         axios({
             method: "post",
             headers: { "Content-Type": "multipart/form-data" },
-            url: `${ALMA_PLUS_API_URL}/api/uploadInstituteImage`,
+            url: `${ALTHUB_API_URL}/api/uploadInstituteImage`,
             data: body,
         })
             .then((response) => {
@@ -154,7 +154,7 @@ const Register = () => {
                             {user.image ? (
                                 <div>
                                     <img
-                                        src={`${ALMA_PLUS_API_URL}${user.image}`}
+                                        src={`${ALTHUB_API_URL}${user.image}`}
                                         alt=""
                                         height={150}
                                         width={150}

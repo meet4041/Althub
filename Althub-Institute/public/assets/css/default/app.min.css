@@ -34626,7 +34626,7 @@ hr {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .45) 0, rgba(0, 0, 0, .9))
+    /* background: linear-gradient(to bottom, rgba(0, 0, 0, .45) 0, rgba(0, 0, 0, .9)) */
 }
 
 .login-cover .login-cover-image {

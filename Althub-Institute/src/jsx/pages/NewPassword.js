@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate, Link, useParams } from "react-router-dom";
-import { ALMA_PLUS_API_URL } from "./baseURL";
+import { ALTHUB_API_URL } from "./baseURL";
 import axios from "axios";
 
 function NewPassword() {
@@ -43,7 +43,7 @@ function NewPassword() {
         e.preventDefault();
         if (validate()) {
             setDisable(true);
-            const myurl = `${ALMA_PLUS_API_URL}/api/instituteResetPassword?token=${token}`;
+            const myurl = `${ALTHUB_API_URL}/api/instituteResetPassword?token=${token}`;
             axios({
                 method: "post",
                 url: myurl,

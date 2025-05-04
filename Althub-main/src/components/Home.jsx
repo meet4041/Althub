@@ -20,7 +20,7 @@ export default function Home({ socket }) {
   const [aids, setAids] = useState([]);
   const [fileList, setFileList] = useState(null);
   const files = fileList ? [...fileList] : [];
-  const userid = localStorage.getItem("AlmaPlus_Id");
+  const userid = localStorage.getItem("Althub_Id");
 
   const getUser = useCallback(() => {
     axios({
@@ -92,7 +92,7 @@ export default function Home({ socket }) {
 
   const addPost = () => {
     var body = new FormData();
-    body.append("userid", localStorage.getItem("AlmaPlus_Id"));
+    body.append("userid", localStorage.getItem("Althub_Id"));
     body.append("description", description);
     body.append("date", new Date());
     files.forEach((file, i) => {

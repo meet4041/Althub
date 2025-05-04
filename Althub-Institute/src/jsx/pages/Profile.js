@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import Loader from '../layout/Loader';
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
@@ -26,7 +26,7 @@ const Profile = () => {
     const [disable2, setDisable2] = useState(false);
 
     const getData = () => {
-        const myurl = `${ALMA_PLUS_API_URL}/api/getInstituteById/${institute_Id}`;
+        const myurl = `${ALTHUB_API_URL}/api/getInstituteById/${institute_Id}`;
         axios({
             method: "get",
             url: myurl,
@@ -50,7 +50,7 @@ const Profile = () => {
         body.append('image', e.target.files[0]);
         axios({
             method: "post",
-            url: `${ALMA_PLUS_API_URL}/api/uploadInstituteImage`,
+            url: `${ALTHUB_API_URL}/api/uploadInstituteImage`,
             data: body,
             headers: { 'Content-Type': "multipart/form-data" },
         }).then((response) => {
@@ -77,7 +77,7 @@ const Profile = () => {
             setDisable(true);
             axios({
                 method: "post",
-                url: `${ALMA_PLUS_API_URL}/api/instituteUpdate`,
+                url: `${ALTHUB_API_URL}/api/instituteUpdate`,
                 data: {
                     id: institute_Id,
                     name: profileInfo.name,
@@ -112,7 +112,7 @@ const Profile = () => {
     }
     const getPassData = () => {
         setChangePass({
-            institute_id: localStorage.getItem("AlmaPlus_institute_Id")
+            institute_id: localStorage.getItem("Althub_institute_Id")
         })
     }
     useEffect(() => getPassData(), [])
@@ -125,7 +125,7 @@ const Profile = () => {
         e.preventDefault();
         if (validateTwo()) {
             setDisable2(true);
-            const myurl = `${ALMA_PLUS_API_URL}/api/instituteUpdatePassword`;
+            const myurl = `${ALTHUB_API_URL}/api/instituteUpdatePassword`;
             axios({
                 method: "post",
                 url: myurl,
@@ -250,7 +250,7 @@ const Profile = () => {
                                                     <br />
                                                     <input type="file" className="form-control" id="exampleInputImage" onChange={handleImg} />
                                                     {profileInfo.image !== '' ?
-                                                        <img src={`${ALMA_PLUS_API_URL}${profileInfo.image}`} className="form-img__img-preview" style={{ width: "84px", height: "84px" }} alt='profile_img' />
+                                                        <img src={`${ALTHUB_API_URL}${profileInfo.image}`} className="form-img__img-preview" style={{ width: "84px", height: "84px" }} alt='profile_img' />
                                                         : ''
                                                     }
                                                 </div>

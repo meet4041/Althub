@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import SweetAlert from 'react-bootstrap-sweetalert';
 import axios from 'axios';
 
@@ -30,7 +30,7 @@ const Events = () => {
     const getEventsData = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getEventsByInstitute/${institute_Id}`,
+            url: `${ALTHUB_API_URL}/api/getEventsByInstitute/${institute_Id}`,
             // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
@@ -97,7 +97,7 @@ const Events = () => {
     const DeleteEvent = () => {
         axios({
             method: "delete",
-            url: `${ALMA_PLUS_API_URL}/api/deleteEvent/${deleteId}`,
+            url: `${ALTHUB_API_URL}/api/deleteEvent/${deleteId}`,
         }).then((response) => {
             if (response.data.success === true) {
                 getEventsData();
@@ -148,7 +148,7 @@ const Events = () => {
                                                     <tr key={index}>
                                                         <td align='left'>{index + 1}</td>
                                                         <td>{elem.title}</td>
-                                                        <td>{elem.photos === '' || elem.photos === undefined || elem.photos.length <= 0 ? <img src='assets/img/Events-amico.png' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}></img> : <img src={`${ALMA_PLUS_API_URL}${elem.photos[0]}`} alt='user-img' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} />}</td>
+                                                        <td>{elem.photos === '' || elem.photos === undefined || elem.photos.length <= 0 ? <img src='assets/img/Events-amico.png' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}></img> : <img src={`${ALTHUB_API_URL}${elem.photos[0]}`} alt='user-img' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} />}</td>
                                                         <td>{elem.description}</td>
                                                         <td>{elem.date.split('T')[0]}</td>
                                                         <td>{elem.date.split('T')[1]}</td>

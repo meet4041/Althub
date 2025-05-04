@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
@@ -52,7 +52,7 @@ const AddFinancialHelp = () => {
         axios({
             method: "post",
             headers: { "Content-Type": "multipart/form-data" },
-            url: `${ALMA_PLUS_API_URL}/api/uploadUserImage`,
+            url: `${ALTHUB_API_URL}/api/uploadUserImage`,
             data: body,
         }).then((response) => {
             console.log(response.data.data.url);
@@ -66,7 +66,7 @@ const AddFinancialHelp = () => {
             setDisable(true)
             axios({
                 method: "post",
-                url: `${ALMA_PLUS_API_URL}/api/addFinancialAid`,
+                url: `${ALTHUB_API_URL}/api/addFinancialAid`,
                 data: {
                     institutename: institute_Name,
                     name: data.name,
@@ -195,7 +195,7 @@ const AddFinancialHelp = () => {
                                                     {data.image ? (
                                                         <div>
                                                             <img
-                                                                src={`${ALMA_PLUS_API_URL}${data.image}`}
+                                                                src={`${ALTHUB_API_URL}${data.image}`}
                                                                 alt=""
                                                                 height={150}
                                                                 width={150}

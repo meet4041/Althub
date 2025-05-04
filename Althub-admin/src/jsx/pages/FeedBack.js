@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import SweetAlert from 'react-bootstrap-sweetalert';
 import axios from 'axios';
 
@@ -29,7 +29,7 @@ const FeedBack = () => {
 
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getFeedback`,
+            url: `${ALTHUB_API_URL}/api/getFeedback`,
             // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
@@ -92,7 +92,7 @@ const FeedBack = () => {
         // console.log("delete button");
         axios({
             method: "delete",
-            url: `${ALMA_PLUS_API_URL}/api/deleteFeedback/${deleteId}`,
+            url: `${ALTHUB_API_URL}/api/deleteFeedback/${deleteId}`,
         }).then((response) => {
             if (response.data.success === true) {
                 getFeedBackData();

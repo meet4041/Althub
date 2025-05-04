@@ -4,7 +4,7 @@ import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
 import axios from 'axios';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 
 
 function Dashboard() {        
@@ -27,7 +27,7 @@ function Dashboard() {
     const getTotalUser = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getUsers`,
+            url: `${ALTHUB_API_URL}/api/getUsers`,
         }).then((response) => {
             if (response.data.success === true) {
                 setUsers(response.data.data.length);
@@ -38,7 +38,7 @@ function Dashboard() {
     const getTotalInstitutes = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getInstitutes`,
+            url: `${ALTHUB_API_URL}/api/getInstitutes`,
         }).then((response) => {
             if (response.data.success === true) {
                 setInstitutes(response.data.data.length);
@@ -49,7 +49,7 @@ function Dashboard() {
     const getTotalFeedback = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getFeedback`,
+            url: `${ALTHUB_API_URL}/api/getFeedback`,
         }).then((response) => {
             if (response.data.success === true) {
                 setFeedback(response.data.data.length);
@@ -59,7 +59,7 @@ function Dashboard() {
     const getTotalCompany = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getCompanies`,
+            url: `${ALTHUB_API_URL}/api/getCompanies`,
         }).then((response) => {
             if (response.data.success === true) {
                 setCompany(response.data.data.length);

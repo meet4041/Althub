@@ -54,7 +54,7 @@ const ChangePasswordModal = ({ closeModal }) => {
   };
 
   const handleChangePassword = () => {
-    const userID=localStorage.getItem("AlmaPlus_Id");
+    const userID=localStorage.getItem("Althub_Id");
     if (validate()) {
         axios({
             url:`${WEB_URL}/api/userUpdatePassword`,

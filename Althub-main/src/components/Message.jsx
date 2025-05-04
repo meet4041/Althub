@@ -7,7 +7,7 @@ import { WEB_URL } from "../baseURL";
 // import { io } from "socket.io-client";
 
 export default function Message({ socket }) {
-  const userid = localStorage.getItem("AlmaPlus_Id");
+  const userid = localStorage.getItem("Althub_Id");
   const [conversationID, setConversationID] = useState([]);
   const [currentId, setCurrentId] = useState("");
   const [messages, setMessages] = useState([]);

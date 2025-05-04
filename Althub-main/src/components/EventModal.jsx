@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const EventModal = ({ closeModal, event, getEvents}) => {
-  const userid = localStorage.getItem("AlmaPlus_Id");
+  const userid = localStorage.getItem("Althub_Id");
   const settings = {
     dots: true,
     speed: 500,

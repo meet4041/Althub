@@ -7,7 +7,7 @@ export default function Notidfication() {
   const [notifications, setNotifications] = useState([]);
   const [user, setUser] = useState({});
   const nav = useNavigate();
-  const userid = localStorage.getItem("AlmaPlus_Id");
+  const userid = localStorage.getItem("Althub_Id");
 
   const getUser = () => {
     axios({

@@ -4,7 +4,7 @@ import axios from "axios";
 
 function ConnectionUser({ userid ,type, getUser}) {
   const [user, setUser] = useState({});
-  const myid = localStorage.getItem("AlmaPlus_Id");
+  const myid = localStorage.getItem("Althub_Id");
   const getUser1 = () => {
     if (userid !== "") {
       axios({

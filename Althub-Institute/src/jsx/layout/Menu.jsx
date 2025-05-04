@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import { ALMA_PLUS_API_URL } from '../pages/baseURL';
+import { ALTHUB_API_URL } from '../pages/baseURL';
 
 function Menu() {
    const navigate = useNavigate();
@@ -34,7 +34,7 @@ function Menu() {
    });
 
    const getData = () => {
-      const myurl = `${ALMA_PLUS_API_URL}/api/getInstituteById/${institute_Id}`;
+      const myurl = `${ALTHUB_API_URL}/api/getInstituteById/${institute_Id}`;
       axios({
          method: "get",
          url: myurl,
@@ -57,14 +57,13 @@ function Menu() {
          <div id="header" className="header navbar-default">
             <div className="navbar-header">
                <Link to="/dashboard" className="navbar-brand">
-                  {/* <span className="navbar-logo"/> */}
-                  <img src='Logo1.jpeg' style={{ marginRight: '5px' , width:"85px"}} alt="logo" />
-                  <b>Althub</b></Link>
+                  <img src='Logo1.jpeg' style={{ marginRight: '5px' , width:"1000px"}} alt="logo" />
+                  <b>Institute</b></Link>
             </div>
             <ul className="navbar-nav navbar-right">
                <li className="dropdown navbar-user">
                   <a className="dropdown-toggle" data-toggle="dropdown">
-                     <img src={`${ALMA_PLUS_API_URL}${profileInfo.image}`} alt="" />
+                     <img src={`${ALTHUB_API_URL}${profileInfo.image}`} alt="" />
                      <span className="d-none d-md-inline">{profileInfo.name}</span> <b className="caret"></b>
                   </a>
                   <div className="dropdown-menu dropdown-menu-right">

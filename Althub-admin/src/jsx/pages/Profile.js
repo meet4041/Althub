@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import Loader from '../layout/Loader';
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
@@ -27,7 +27,7 @@ const Profile = () => {
     const [disable2, setDisable2] = useState(false);
 
     const getData = () => {
-        const myurl = `${ALMA_PLUS_API_URL}/api/getAdminById/${admin_Id}`;
+        const myurl = `${ALTHUB_API_URL}/api/getAdminById/${admin_Id}`;
         axios({
             method: "get",
             url: myurl,
@@ -53,7 +53,7 @@ const Profile = () => {
     const handleImg = (e) => {
         var body = new FormData();
         body.append('profilepic', e.target.files[0]);
-        const myurl = `${ALMA_PLUS_API_URL}/api/uploadAdminImage`;
+        const myurl = `${ALTHUB_API_URL}/api/uploadAdminImage`;
         axios({
             method: "post",
             url: myurl,
@@ -83,7 +83,7 @@ const Profile = () => {
             setDisable(true);
             axios({
                 method: "post",
-                url: `${ALMA_PLUS_API_URL}/api/adminUpdate`,
+                url: `${ALTHUB_API_URL}/api/adminUpdate`,
                 data: {
                     id: admin_Id,
                     name: profileInfo.name,
@@ -131,7 +131,7 @@ const Profile = () => {
         e.preventDefault();
         if (validateTwo()) {
             setDisable2(true);
-            const myurl = `${ALMA_PLUS_API_URL}/api/updatepassword`;
+            const myurl = `${ALTHUB_API_URL}/api/updatepassword`;
             axios({
                 method: "post",
                 url: myurl,
@@ -269,7 +269,7 @@ const Profile = () => {
                                                     <br />
                                                     <input type="file" className="form-control" id="exampleInputImage" onChange={handleImg} />
                                                     {profileInfo.profilepic !== '' ?
-                                                        <img src={`${ALMA_PLUS_API_URL}${profileInfo.profilepic}`} className="form-img__img-preview" style={{ width: "84px", height: "84px" }} alt='profile_img' />
+                                                        <img src={`${ALTHUB_API_URL}${profileInfo.profilepic}`} className="form-img__img-preview" style={{ width: "84px", height: "84px" }} alt='profile_img' />
                                                         : ''
                                                     }
                                                 </div>

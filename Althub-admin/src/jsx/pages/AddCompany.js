@@ -1,9 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
-
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
@@ -58,7 +57,7 @@ const AddCompany = () => {
             };
             axios({
                 method: "post",
-                url: `${ALMA_PLUS_API_URL}/api/addCompany`,
+                url: `${ALTHUB_API_URL}/api/addCompany`,
                 data: body,
                 
             }).then((response) => {
@@ -87,7 +86,7 @@ const AddCompany = () => {
     axios({
       method: "post",
       headers: { "Content-Type": "multipart/form-data" },
-      url: `${ALMA_PLUS_API_URL}/api/uploadCompanyImage`,
+      url: `${ALTHUB_API_URL}/api/uploadCompanyImage`,
       data: body,
     })
       .then((response) => {
@@ -199,7 +198,7 @@ const AddCompany = () => {
                                                     {data.image ? (
                                                         <div>
                                                             <img
-                                                                src={`${ALMA_PLUS_API_URL}${data.image}`}
+                                                                src={`${ALTHUB_API_URL}${data.image}`}
                                                                 alt=""
                                                                 height={150}
                                                                 width={150}

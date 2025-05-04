@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import SweetAlert from 'react-bootstrap-sweetalert';
 import axios from 'axios';
 
@@ -31,7 +31,7 @@ const Courses = () => {
     const getCoursesData = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getCourseByInstitute/${institute_Id}`,
+            url: `${ALTHUB_API_URL}/api/getCourseByInstitute/${institute_Id}`,
             // data: bodyFormData,
             // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
@@ -98,7 +98,7 @@ const Courses = () => {
         // console.log("delete button");
         axios({
             method: "delete",
-            url: `${ALMA_PLUS_API_URL}/api/deleteCourse/${deleteId}`,
+            url: `${ALTHUB_API_URL}/api/deleteCourse/${deleteId}`,
         }).then((response) => {
             if (response.data.success === true) {
                 getCoursesData();

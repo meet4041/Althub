@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
@@ -38,7 +38,7 @@ const Login = () => {
             var bodyFormData = new URLSearchParams();
             bodyFormData.append('email', loginInfo.email);
             bodyFormData.append('password', loginInfo.password);
-            const myurl = `${ALMA_PLUS_API_URL}/api/instituteLogin`;
+            const myurl = `${ALTHUB_API_URL}/api/instituteLogin`;
             axios({
                 method: "post",
                 url: myurl,
@@ -113,7 +113,6 @@ const Login = () => {
                 <div className="login login-v2" data-pageload-addclassname="animated fadeIn">
                     <div className="login-header">
                         <div className="brand">
-                            {/* <span className="logo"></span> */}
                             <img src='Logo1.jpeg' style={{ width: '150px', height: '70px', borderRadius: "8px" }} alt="logo" />
                             <b>Institute</b> 
                             <small>Login for Althub Institute panel</small>

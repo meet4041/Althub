@@ -6,7 +6,7 @@ import { WEB_URL } from "../baseURL";
 const HelpStudents = () => {
   const [user, setUser] = useState({});
   const [aids, setAids] = useState([]);
-  const userid = localStorage.getItem("AlmaPlus_Id");
+  const userid = localStorage.getItem("Althub_Id");
   const nav = useNavigate();
 
   const getUser = useCallback(() => {

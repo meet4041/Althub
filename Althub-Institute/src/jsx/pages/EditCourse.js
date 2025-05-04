@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
 
 import Loader from '../layout/Loader'
@@ -65,7 +65,7 @@ const EditCourse = () => {
             setDisable(true);
             axios({
                 method: "post",
-                url: `${ALMA_PLUS_API_URL}/api/editCourse`,
+                url: `${ALTHUB_API_URL}/api/editCourse`,
                 data: {
                     id: data.id,
                     name: data.name,

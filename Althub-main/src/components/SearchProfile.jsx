@@ -13,7 +13,7 @@ export default function SearchProfile() {
   const closeModal = () => setModal(false);
   const [add, setAdd] = useState("");
   const [skill, setSkill] = useState("");
-  const userID = localStorage.getItem("AlmaPlus_Id");
+  const userID = localStorage.getItem("Althub_Id");
 
   useEffect(() => {
     axios({

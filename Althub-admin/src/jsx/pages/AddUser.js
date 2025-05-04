@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
 
 import Loader from '../layout/Loader'
@@ -45,7 +45,7 @@ const AddUser = () => {
             setDisable(true)
             axios({
                 method: "post",
-                url: `${ALMA_PLUS_API_URL}/api/inviteUser`,
+                url: `${ALTHUB_API_URL}/api/inviteUser`,
                 data: {
                     fname: data.name,
                     phone: data.number,

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
@@ -75,7 +75,7 @@ const EditCompany = () => {
             setDisable(true);
             axios({
                 method: "post",
-                url: `${ALMA_PLUS_API_URL}api/companyUpdate`,
+                url: `${ALTHUB_API_URL}api/companyUpdate`,
                 data: {
                     id: data.id,
                     name: data.name,
@@ -206,7 +206,7 @@ const EditCompany = () => {
                                             <div className="row">
                                                 <div className="col-md-12 form-group">
                                                     <label htmlFor="exampleprofile">Profile Pic:</label><br/>
-                                                    <img src={`${ALMA_PLUS_API_URL}${data.image}`}alt={data.name} style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}/><br/><br/>
+                                                    <img src={`${ALTHUB_API_URL}${data.image}`}alt={data.name} style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}/><br/><br/>
                                                     <input type="file" className="form-control" id="exampleprofile" placeholder="Enter Profile pic" name="Profilepic" onChange={handleChange}  src={data.image}  />
                                                     
                                                     {/* <div className="text-danger">{errors.email_err}</div> */}

@@ -20,7 +20,7 @@ export default function Navbar({ socket }) {
   const [user, setUser] = useState({});
   const [navbar, setNavbar] = useState(true);
   const pathname = window.location.pathname;
-  // const userid = localStorage.getItem("AlmaPlus_Id");
+  // const userid = localStorage.getItem("Althub_Id");
   const [mesDot, setMesDot] = useState(false);
   const [notDot, setNotDot] = useState(false);
 
@@ -36,7 +36,7 @@ export default function Navbar({ socket }) {
   };
 
   const getUser = () => {
-    const userID = localStorage.getItem("AlmaPlus_Id");
+    const userID = localStorage.getItem("Althub_Id");
     axios({
       method: "get",
       url: `${WEB_URL}/api/searchUserById/${userID}`,
@@ -201,7 +201,7 @@ export default function Navbar({ socket }) {
       setNavbar(true);
       getUser();
     }
-    socket.emit("addUser", localStorage.getItem("AlmaPlus_Id"));
+    socket.emit("addUser", localStorage.getItem("Althub_Id"));
     // socket.on("getUsers",data=>{
     //   console.log(data);
     // })

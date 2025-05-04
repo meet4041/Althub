@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import SweetAlert from 'react-bootstrap-sweetalert';
 import axios from 'axios';
 
@@ -29,7 +29,7 @@ const Users = () => {
     const getUsersData = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getUsersOfInstitute/${institute_Name}`,
+            url: `${ALTHUB_API_URL}/api/getUsersOfInstitute/${institute_Name}`,
             // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
@@ -89,7 +89,7 @@ const Users = () => {
         // console.log("delete button");
         axios({
             method: "delete",
-            url: `${ALMA_PLUS_API_URL}/api/deleteUser/${deleteId}`,
+            url: `${ALTHUB_API_URL}/api/deleteUser/${deleteId}`,
         }).then((response) => {
             if (response.data.success === true) {
                 getUsersData();
@@ -147,7 +147,7 @@ const Users = () => {
                                                     <tr key={index}>
                                                         <td align='left'>{index + 1}</td>
                                                         <td>{elem.fname}</td>
-                                                        <td>{elem.profilepic === '' || elem.profilepic === undefined ? <img src='assets/img/profile1.png' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}></img> : <img src={`${ALMA_PLUS_API_URL}${elem.profilepic}`} alt='user-img' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} />}</td>
+                                                        <td>{elem.profilepic === '' || elem.profilepic === undefined ? <img src='assets/img/profile1.png' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}></img> : <img src={`${ALTHUB_API_URL}${elem.profilepic}`} alt='user-img' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} />}</td>
                                                         <td>{elem.email}</td>
                                                         <td>{elem.phone ? elem.phone : ''}</td>
                                                         <td>{elem.dob.split('T')[0]}</td>

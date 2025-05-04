@@ -4,7 +4,7 @@ import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
 import axios from 'axios';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 
 function Dashboard() {
     useEffect(() => {
@@ -27,7 +27,7 @@ function Dashboard() {
     const getTotalUser = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getUsersOfInstitute/${institute_Name}`,
+            url: `${ALTHUB_API_URL}/api/getUsersOfInstitute/${institute_Name}`,
         }).then((response) => {
             if (response.data.success === true) {
                 setUsers(response.data.data.length);
@@ -38,7 +38,7 @@ function Dashboard() {
     const getTotalCourses = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getCourseByInstitute/${institute_Id}`,
+            url: `${ALTHUB_API_URL}/api/getCourseByInstitute/${institute_Id}`,
         }).then((response) => {
             if (response.data.success === true) {
                 setCourses(response.data.data.length);
@@ -49,7 +49,7 @@ function Dashboard() {
     const getTotalEvents = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getEventsByInstitute/${institute_Id}`,
+            url: `${ALTHUB_API_URL}/api/getEventsByInstitute/${institute_Id}`,
         }).then((response) => {
             if (response.data.success === true) {
                 setEvents(response.data.data.length);
@@ -59,7 +59,7 @@ function Dashboard() {
     const getTotalPosts = () => {
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getPostById/${institute_Id}`,
+            url: `${ALTHUB_API_URL}/api/getPostById/${institute_Id}`,
         }).then((response) => {
             if (response.data.success === true) {
                 setPosts(response.data.data.length);

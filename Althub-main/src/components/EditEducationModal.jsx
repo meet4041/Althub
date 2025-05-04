@@ -81,7 +81,7 @@ const EditEducationModal = ({ closeModal, education, getEducation, modal }) => {
   };
 
   const handleInsert = () => {
-    const userID = localStorage.getItem("AlmaPlus_Id");
+    const userID = localStorage.getItem("Althub_Id");
     if (validate()) {
       axios({
         url: `${WEB_URL}/api/addEducation`,

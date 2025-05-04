@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import axios from 'axios';
 
 import Loader from '../layout/Loader'
@@ -44,7 +44,7 @@ const AddPost = () => {
         });
     }
     const getData = () => {
-        const myurl = `${ALMA_PLUS_API_URL}/api/getInstituteById/${institute_Id}`;
+        const myurl = `${ALTHUB_API_URL}/api/getInstituteById/${institute_Id}`;
         axios({
             method: "get",
             url: myurl,
@@ -58,7 +58,7 @@ const AddPost = () => {
 
     const getInstitute = () =>{
         axios({
-            url:`${ALMA_PLUS_API_URL}/api/getInstituteById/${institute_Id}`,
+            url:`${ALTHUB_API_URL}/api/getInstituteById/${institute_Id}`,
             method:"get",
         }).then((Response)=>{
             setImage(Response.data.data.image&&Response.data.data.image);
@@ -85,7 +85,7 @@ const AddPost = () => {
             body.append("date", new Date());
             axios({
                 method: "post",
-                url: `${ALMA_PLUS_API_URL}/api/instituteAddPost`,
+                url: `${ALTHUB_API_URL}/api/instituteAddPost`,
                 data: body,
                 headers: {
                     "content-type": "multipart/form-data"

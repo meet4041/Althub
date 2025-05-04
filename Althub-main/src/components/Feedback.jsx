@@ -10,7 +10,7 @@ export default function Feedback() {
     const [rate,setRate]=useState(0);
     const nav=useNavigate();
     const handleFeedBack=()=>{
-        const userID=localStorage.getItem("AlmaPlus_Id");
+        const userID=localStorage.getItem("Althub_Id");
         if(feedback!==""||rate>0){
             axios({
                 url:`${WEB_URL}/api/addFeedback`,

@@ -30,7 +30,7 @@ export default function ViewProfile() {
   const closeModal5 = () => setShowModal5(false);
   const [modal, setModal] = useState("");
   const [editmenu, setEditMenu] = useState(false);
-  const userID = localStorage.getItem("AlmaPlus_Id");
+  const userID = localStorage.getItem("Althub_Id");
 
   const getUser = () => {
     axios({

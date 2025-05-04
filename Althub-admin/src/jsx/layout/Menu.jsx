@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import { ALMA_PLUS_API_URL } from '../pages/baseURL';
+import { ALTHUB_API_URL } from '../pages/baseURL';
 
 
 function Menu() {
@@ -52,7 +52,7 @@ function Menu() {
    // useEffect(() => getData(), [])
 
    const getData = useCallback(() => {
-      const myurl = `${ALMA_PLUS_API_URL}/api/getAdminById/${admin_Id}`;
+      const myurl = `${ALTHUB_API_URL}/api/getAdminById/${admin_Id}`;
       axios.get(myurl).then((response) => {
          console.log(response.data.data);
          if (response.data.success === true) {
@@ -67,11 +67,6 @@ function Menu() {
    useEffect(() => {
       getData();
    }, [getData]);
-
-
-
-   
-
    
 useEffect(() => {
    // document.getElementById('page-loader').style.display = 'none';
@@ -91,7 +86,7 @@ useEffect(() => {
             <ul className="navbar-nav navbar-right">
                <li className="dropdown navbar-user">
                   <a className="dropdown-toggle" data-toggle="dropdown">
-                     <img src={`${ALMA_PLUS_API_URL}${admin.profilepic}`}   alt=""  style={{ width: '41px' , height:'41px' }}  />
+                     {/* <img src={`${ALMA_PLUS_API_URL}${admin.profilepic}`}   alt=""  style={{ width: '41px' , height:'41px' }}  /> */}
                      <span className="d-none d-md-inline">{admin.name}</span> <b className="caret"></b>
                   </a>
                   <div className="dropdown-menu dropdown-menu-right">

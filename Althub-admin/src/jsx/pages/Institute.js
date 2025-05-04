@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Loader from '../layout/Loader'
 import Menu from '../layout/Menu';
 import Footer from '../layout/Footer';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import SweetAlert from 'react-bootstrap-sweetalert';
 import axios from 'axios';
 
@@ -30,7 +30,7 @@ const Institutes = () => {
 
         axios({
             method: "get",
-            url: `${ALMA_PLUS_API_URL}/api/getInstitutes`,
+            url: `${ALTHUB_API_URL}/api/getInstitutes`,
             // data: bodyFormData,
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         }).then((response) => {
@@ -115,7 +115,7 @@ const Institutes = () => {
         // console.log("delete button");
         axios({
             method: "delete",
-            url: `${ALMA_PLUS_API_URL}/api/deleteInstitute/${deleteId}`,
+            url: `${ALTHUB_API_URL}/api/deleteInstitute/${deleteId}`,
         }).then((response) => {
             if (response.data.success === true) {
                 getInstitutesData();
@@ -176,7 +176,7 @@ const Institutes = () => {
                                                         <td align='left'>{index + 1}</td>
                                                         <td>{elem.name}</td>
                                                         <td>{elem.address}</td>
-                                                        <td>{elem.image === '' || elem.image === undefined ? <img src='assets/img/login-bg/profile1.png' alt='' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}></img> : <img src={`${ALMA_PLUS_API_URL}${elem.image}`} alt='Institute-img' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} />}</td>
+                                                        <td>{elem.image === '' || elem.image === undefined ? <img src='assets/img/login-bg/profile1.png' alt='' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }}></img> : <img src={`${ALTHUB_API_URL}${elem.image}`} alt='Institute-img' style={{ width: '50px', height: '50px', borderRadius: '8px', objectFit: 'cover', boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px' }} />}</td>
                                                         <td>{elem.email}</td>
                                                         <td>{elem.phone ? elem.phone : ''}</td>
                                                         <td>{elem.website}</td>

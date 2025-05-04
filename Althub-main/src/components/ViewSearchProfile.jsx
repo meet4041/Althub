@@ -16,7 +16,7 @@ export default function ViewSearchProfile({ socket }) {
   const [education, setEducation] = useState([]);
   const [contactInfo, setContactInfo] = useState(false);
   const [experience, setExperience] = useState([]);
-  const myID = localStorage.getItem("AlmaPlus_Id");
+  const myID = localStorage.getItem("Althub_Id");
   const [userID, setUserID] = useState("");
   const [topUsers, setTopUsers] = useState([]);
   const [self, setSelf]=useState({});

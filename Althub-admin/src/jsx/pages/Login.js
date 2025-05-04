@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
-import { ALMA_PLUS_API_URL } from './baseURL';
+import { ALTHUB_API_URL } from './baseURL';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
@@ -40,7 +40,7 @@ const Login = () => {
             bodyFormData.append('auth_code', "Althub");
             bodyFormData.append('email', loginInfo.email);
             bodyFormData.append('password', loginInfo.password);
-            const myurl = `${ALMA_PLUS_API_URL}/api/adminLogin`;
+            const myurl = `${ALTHUB_API_URL}/api/adminLogin`;
             axios({
                 method: "post",
                 url: myurl,
@@ -117,9 +117,9 @@ const Login = () => {
                 <div className="login login-v2" data-pageload-addclassname="animated fadeIn">
                     <div className="login-header">
                         <div className="brand">
-                            <span className="logo"></span>
-                            {/* <img src='Logo1.jpeg' style={{ width: '150px', height: '50px',borderRadius:"8px" }} alt="logo" /> */}
-                            <b>Althub Admin</b>
+                            {/* <span className="logo"></span> */}
+                            <img src='Logo1.jpeg' style={{ width: '160px', height: '70px',borderRadius:"8px" }} alt="logo" />
+                            <b>Admin</b>
                             <small>Login for Althub Admin panel</small>
                         </div>
                         <div className="icon">

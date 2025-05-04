@@ -11,7 +11,7 @@ function ChatUser({
 }) {
   const [user, setUser] = useState(null);
   const [userId, setUserId] = useState("");
-  const myid = localStorage.getItem("AlmaPlus_Id");
+  const myid = localStorage.getItem("Althub_Id");
 
   useEffect(() => {
     if (userid?.members && myid) {
