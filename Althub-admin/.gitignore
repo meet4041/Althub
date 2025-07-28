@@ -1,0 +1,32 @@
+# macOS system files
+.DS_Store
+._*
+
+# Node dependencies
+node_modules/
+
+# Build output
+build/
+dist/
+
+# Miscellaneous
+.env
+.env.*
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Other unnecessary files
+*.log 

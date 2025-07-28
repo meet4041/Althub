@@ -1,0 +1,372 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", "sans-serif";
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: #f3f2ef;
+    color: #535252;
+    width: 100%;
+}
+
+/* ------------ Register -------------- */
+
+/*form styles*/
+
+#msform {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-fields-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: 100vh;
+    /* position: absolute; */
+    margin-top: -50px;
+}
+
+.left-container {
+    background: linear-gradient(to bottom right, white, #66bd9e);
+    flex-basis: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 42px;
+    height: 100%;
+}
+
+.left-container .left-container-content {
+    padding: 5px 30px;
+    text-align: center;
+}
+
+.left-container-content h2 {
+    color: #32755e;
+    margin-bottom: 10px;
+}
+
+.left-container-content p {
+    color: rgb(103, 102, 102);
+    margin-bottom: 20px;
+}
+
+.left-container-content a {
+    padding: 5px 25px;
+    border-radius: 16px;
+    background-color: #66bd9e;
+    box-shadow: 5px 5px 5px #d4eee4;
+    color: white;
+}
+
+.left-container img {
+    width: 100%;
+}
+
+.right-container {
+    flex-basis: 70%;
+    height: 100%;
+    padding: 80px 0;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 16px;
+    box-shadow: 0 0 15px 1px rgba(141, 191, 187, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+#msform input,
+#msform textarea,
+#msform select {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2c3e50;
+    font-size: 13px;
+}
+
+#msform input:focus,
+#msform textarea:focus {
+    border: 2px solid #66bd9e;
+    outline-width: 0;
+}
+
+
+/*buttons*/
+
+#msform .action-button {
+    width: 100px;
+    background: #66bd9e;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #66bd9e;
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #a7ece6;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #c5c5f1;
+}
+
+
+/*headings*/
+
+.fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+/*progressbar*/
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    counter-reset: step;
+    width: 100%;
+}
+
+#progressbar li {
+    list-style-type: none;
+    color: #66bd9e;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 25%;
+    float: left;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 24px;
+    height: 24px;
+    line-height: 26px;
+    display: block;
+    font-size: 12px;
+    color: #333;
+    background: white;
+    border-radius: 25px;
+    margin: 0 auto 10px auto;
+}
+
+
+/*progressbar connectors*/
+
+#progressbar li:after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1;
+    /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+    content: none;
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #66bd9e;
+    color: white;
+}
+
+.gender {
+    display: flex;
+}
+
+.gender div {
+    display: flex;
+    padding: 5px;
+}
+
+.gender span {
+    margin: 0px 10px;
+    margin-bottom: 10px;
+}
+
+.datefield {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.datefield span {
+    padding: 10px;
+    align-self: flex-start;
+}
+
+
+/* dropdown */
+
+.prise_main_drop {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    color: #a5a5a5;
+    padding: 10px 20px;
+    height: auto;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.prise-list-merge {
+    overflow-y: scroll;
+}
+
+.prise-list-merge::-webkit-scrollbar {
+    display: none;
+}
+
+ul.prise-list-merge li {
+    -webkit-user-select: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+    color: #414141;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+ul.prise-list-merge li:hover {
+    background: #f6f6f6;
+    color: #414141 !important;
+}
+
+.prise_main_drop ul.prise-list-merge {
+    position: absolute;
+    padding: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 62px;
+    margin: 0;
+    list-style: none;
+    padding: 7px;
+    background-color: #fff;
+    box-shadow: 0px 5px 8px rgb(0 0 0 / 15%);
+    border-radius: 10px;
+    z-index: 99;
+    display: none;
+}
+
+span.prise_down_icon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    /* background-image: url(../images/vector_bottom.svg); */
+    border: none;
+    top: 0;
+    left: unset;
+    right: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: 0;
+    margin: auto;
+}
+
+span.prise-data {
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0 0 0 10px;
+    line-height: 30px;
+    letter-spacing: 0.05em;
+    color: #414141;
+}
+
+ul.prise-list-merge li.prise_list.selected {
+    background: #81d7b9 !important;
+    color: #204538 !important;
+}
+
+.prise_main_drop ul.prise-list-merge.opened {
+    display: block;
+}
+
+.option-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.text-danger {
+    color: red;
+    font-size: 12px;
+    margin: -10px 0 10px;
+}

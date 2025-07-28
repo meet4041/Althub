@@ -1,0 +1,1 @@
+export const ALTHUB_API_URL = "http://localhost:5001";

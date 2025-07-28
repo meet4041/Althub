@@ -1,0 +1,32 @@
+/node_modules
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Uploaded images and media (optional, if not needed in repo)
+public/adminImages/
+public/companyImages/
+public/educationImages/
+public/eventImages/
+public/experienceImages/
+public/instituteImages/
+public/notificationSenderImages/
+public/postImages/
+public/userImages/
+
+# Misc
+*.swp
+*.swo
+.idea/
+.vscode/
